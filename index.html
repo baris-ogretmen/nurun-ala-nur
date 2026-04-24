@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nurun Ala Nur | Ruhsal Simya Merkezi</title>
+    <title>Nurun Ala Nur | Devasa Ruhsal Simya Merkezi</title>
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,9 +44,9 @@
                         waterFill: { '0%': { transform: 'scaleY(0)', transformOrigin: 'bottom' }, '100%': { transform: 'scaleY(1)', transformOrigin: 'bottom' } },
                         burst: { '0%': { transform: 'scale(0.8)', opacity: '0' }, '50%': { transform: 'scale(1.1)', opacity: '1' }, '100%': { transform: 'scale(1)', opacity: '1' } },
                         floatOrb: { 
-                            '0%': { transform: 'translate(0, 0) scale(1)', opacity: '0.3' }, 
-                            '50%': { transform: 'translate(40px, -60px) scale(1.2)', opacity: '0.6' },
-                            '100%': { transform: 'translate(-30px, 30px) scale(0.9)', opacity: '0.3' }
+                            '0%': { transform: 'translate(0, 0) scale(1)', opacity: '0.2' }, 
+                            '50%': { transform: 'translate(40px, -60px) scale(1.2)', opacity: '0.5' },
+                            '100%': { transform: 'translate(-30px, 30px) scale(0.9)', opacity: '0.2' }
                         },
                         breath478: {
                             '0%': { transform: 'scale(1)', opacity: '0.4' },
@@ -89,6 +89,7 @@
         .gemini-glow {
             box-shadow: 0 0 30px rgba(126, 58, 179, 0.15), inset 0 0 20px rgba(212, 175, 55, 0.1);
             border: 1px solid rgba(126, 58, 179, 0.3);
+            background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(245,243,247,0.9));
         }
 
         .gold-border-glow { position: relative; }
@@ -194,22 +195,37 @@
             Wind: () => <svg className="w-6 h-6 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12.75 19.5v-.75a7.5 7.5 0 00-7.5-7.5H4.5m0-6.75h.75c7.87 0 14.25 6.38 14.25 14.25v.75M6 18.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0z"></path></svg>,
             CrystalBall: () => <svg className="w-6 h-6 text-mystic-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09l2.846.813-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"></path></svg>,
             Link: () => <svg className="w-6 h-6 text-mystic-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M13.19 8.688a4.5 4.5 0 011.242 7.244l-4.5 4.5a4.5 4.5 0 01-6.364-6.364l1.757-1.757m13.35-.622l1.757-1.757a4.5 4.5 0 00-6.364-6.364l-4.5 4.5a4.5 4.5 0 001.242 7.244"></path></svg>,
-            Wave: () => <svg className="w-6 h-6 text-mystic-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"></path></svg>,
-            Key: () => <svg className="w-6 h-6 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z"></path></svg>,
-            Feather: () => <svg className="w-6 h-6 text-mystic-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.438 4.438 0 002.946-2.946 4.5 4.5 0 00-1.189-1.36z"></path></svg>,
             Wand: () => <svg className="w-6 h-6 text-gold-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14.25 2.25L15.652 5.056l2.848.414-2.06 2.008.486 2.836-2.676-1.407-2.676 1.407.486-2.836-2.06-2.008 2.848-.414L14.25 2.25zM6.75 8.25L7.45 9.653l1.424.207-1.03 1.004.243 1.418-1.338-.704-1.338.704.243-1.418-1.03-1.004 1.424-.207L6.75 8.25zM14.25 12.75L15.652 15.556l2.848.414-2.06 2.008.486 2.836-2.676-1.407-2.676 1.407.486-2.836-2.06-2.008 2.848-.414L14.25 12.75zM5.25 16.5L3 21l8.25-8.25-3-3L5.25 16.5z"></path></svg>,
-            Tree: () => <svg className="w-6 h-6 text-earth-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 21v-8m0 0l-5-5m5 5l5-5M12 3a9 9 0 00-9 9c0 2.25.8 4.3 2.1 5.9L12 21l6.9-3.1C20.2 16.3 21 14.25 21 12a9 9 0 00-9-9z"></path></svg>
+            Tree: () => <svg className="w-6 h-6 text-earth-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 21v-8m0 0l-5-5m5 5l5-5M12 3a9 9 0 00-9 9c0 2.25.8 4.3 2.1 5.9L12 21l6.9-3.1C20.2 16.3 21 14.25 21 12a9 9 0 00-9-9z"></path></svg>,
+            Leaf: () => <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M11.35 3.836c-.065.21-.1.433-.1.664 0 4.145 3.355 7.5 7.5 7.5l.45-1.066m-9.743-4.636l-2.012 2.012M12 12c-4.145 0-7.5 3.355-7.5 7.5 0 .231.035.454.1.664M4.25 20.75l2.012-2.012M15.5 15.5l2.012 2.012M19.75 4.25l-2.012 2.012"></path></svg>,
+            Scanner: () => <svg className="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M7.5 3.75H6A2.25 2.25 0 003.75 6v1.5m13.5 0V6A2.25 2.25 0 0015 3.75h-1.5m-13.5 15v-1.5A2.25 2.25 0 016 15h1.5m13.5 1.5v1.5A2.25 2.25 0 0115 20.25h-1.5m-10.5-6h13.5m-13.5 3h13.5"></path></svg>,
+            TextFormat: () => <svg className="w-6 h-6 text-mystic-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M9 4.5v15m6-15v15m-10.5-6h15m-15-6h15"></path></svg>,
+            HeartFlame: () => <svg className="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 10.5v4.5m-2.25-2.25h4.5"></path></svg>
         };
 
         // --- DEVASA VERİ SETLERİ (JSON) ---
         
         const encyclopediaData = [
             {
+                id: 'ayurveda',
+                title: "Ayurveda: Türkiye'de Gizli Kalan Hücresel Aydınlanma Teknolojisi",
+                content: [
+                    "Sıradan bir bitki biliminin çok ötesinde, 5000 yıllık bir ruhsal sır olan Ayurveda, Türkiye'de maalesef çok az bilinen bir aydınlanma anahtarıdır. Ayurveda (Ayur=Yaşam, Veda=Bilgi), bedeninizi oluşturan elementlerin evrensel frekansla nasıl dans ettiğinin matematiğidir.",
+                    "Nurun Ala Nur vizyonunda Ayurveda bir 'diyet' değil, hücresel zekanızın uyanışıdır. Vücudunuzdaki üç ana nur merkezi (Dosha) şunlardır:",
+                    [
+                        "VATA (Prana/Hava): Evrenin rüzgarı. Zihninizdeki ilhamın ve sinir ağınızdaki ışık hızının merkezidir. Vata bozulduğunda kişi kurumuş bir yaprak gibi kaygı, uykusuzluk ve korku rüzgarlarında savrulur.",
+                        "PITTA (Agni/Ateş): Evrenin güneşi ve dönüşüm nuru. Yediğiniz lokmayı kana, okuduğunuz bilgiyi bilgeliğe dönüştüren simya ateşidir. Pitta kontrolden çıktığında hücreler iltihaplanır, ruh öfke ve eleştiri ile yanar.",
+                        "KAPHA (Ojas/Toprak ve Su): Evrenin şefkatli kucağı. Bedenin dayanıklılığı, sevginin sıvı halidir (Ojas). Kapha gölgelendiğinde kişi geçmişe tutunur, atalet başlar, beden yağ ve ödemle karanlık bir zırh örer."
+                    ],
+                    "Bu kadim sistemde 'Ama' (Hücresel Karanlık Toksin), sindirilememiş duyguların ve gıdaların bedendeki tortusudur. Nurun Ala Nur merkezinde, size özel hazırlanan baharat simyaları (Ghee, Zerdeçal, Ashwagandha kombinasyonları) ve mizaç analizi ile içinizdeki Agni'yi (Şifa Ateşini) yakar, Ama'yı eritip bedeninizi saf bir ışık prizmasına dönüştürürüz."
+                ]
+            },
+            {
                 id: 'bioenerji',
                 title: "Nurun Ala Nur Biyoenerji ve Kozmik Frekanslar",
                 content: [
-                    "Biyoenerji, evrenin dokusunu oluşturan ve her canlının içinden akan görünmez ışık, ilksel yaşam gücüdür. Bedenimiz, aslında bu devasa nur okyanusunun sadece yoğunlaşmış, görünür bir formudur. Işık bedenimizde oluşan her titreşim, evrenle kesintisiz bir fısıldaşmadır.",
-                    "Hastalıklar, ağrılar veya ruhsal tıkanıklıklar fiziksel bedende belirmeden çok önce, enerji bedenimizde (aurada) bir nur eksikliği, frekans düşüklüğü veya blokaj olarak ortaya çıkar. Yaşadığımız travmalar, bastırılmış duygular, korkular ve toksik düşünce kalıpları, içimizdeki ilksel ışığın (nurun) akışını engeller.",
+                    "Biyoenerji, evrenin dokusunu oluşturan ve her canlının içinden akan görünmez ışık, ilksel yaşam gücüdür. Bedenimiz, aslında bu devasa nur okyanusunun sadece yoğunlaşmış, görünür bir formudur.",
+                    "Hastalıklar, ağrılar veya ruhsal tıkanıklıklar fiziksel bedende belirmeden çok önce, enerji bedenimizde (aurada) bir nur eksikliği, frekans düşüklüğü veya blokaj olarak ortaya çıkar.",
                     "Nurun Ala Nur felsefesiyle tasarlanan Biyoenerji seanslarında yapılan şey:",
                     [
                         "Aura katmanlarındaki (ışık bedenindeki) yırtıkların ve enerji kaçaklarının tespit edilmesi.",
@@ -220,76 +236,59 @@
                 ]
             },
             {
-                id: 'ayurveda',
-                title: "Ayurveda: Bedenin İlksel Işığına Dönüş",
-                content: [
-                    "Ayurveda, kelime anlamıyla 'Yaşam (Ayur) Bilgisi (Veda)' demektir ve kökeni 5000 yıl öncesine dayanan kadim bir şifa sistemidir. Nurun Ala Nur yaklaşımında Ayurveda, bedeninizi oluşturan 5 temel elementin (Boşluk, Hava, Ateş, Su, Toprak) evrensel ışıkla yeniden senkronize edilmesidir.",
-                    "Bu elementler insan bedeninde üç temel biyolojik enerjiyi, yani nurun üç farklı yansıması olan 'Dosha'ları oluşturur:",
-                    [
-                        "VATA (Hava + Eter): Hareketin, ilhamın ve sinir ağlarındaki ışık hızının yöneticisi. Dengesi bozulduğunda kaygı, fırtınalı bir zihin ve bedende kuruluk yaratır.",
-                        "PITTA (Ateş + Su): Dönüşümün, içsel ateşin ve idrak nurunun yöneticisi. Dengesi bozulduğunda öfke, yıkıcı ateş ve iltihaplar olarak bedeni yakar.",
-                        "KAPHA (Toprak + Su): Yapının, yeryüzüyle olan sevgi bağımızın ve şefkatin yöneticisi. Dengesi bozulduğunda atalet, depresif bir karanlık ve ağırlık oluşturur."
-                    ],
-                    "Hastalık, bedenin doğuştan getirdiği mizaç (Prakriti) ile şu an bulunduğu karanlık (Vikriti) arasındaki dengesizliktir. Size özel hazırlanan beslenme reçeteleri, baharat simyaları ve ışık dolu masajlarla bedeniniz fabrika ayarlarına, o muazzam aydınlığına geri döner."
-                ]
-            },
-            {
                 id: 'eft',
                 title: "EFT: Duygusal Yüklerden Nura Özgürleşme",
                 content: [
-                    "EFT (Emotional Freedom Techniques), iğnesiz akupunktur olarak bilinen, zihin ve beden arasındaki ışık köprülerini onaran muazzam bir tekniktir. Bilinçaltımız, yaşadığımız travmaları hücresel hafızamıza bir 'kısa devre', bir karanlık leke olarak kaydeder.",
-                    "Açıklanamayan bir fobi, bir öfke krizinde veya kronik bir ağrıda aslında bedeninizin enerji sistemindeki o eski karanlık kayıt tetikleniyordur. EFT, parmak uçlarıyla bedendeki meridyen (ışık yolları) bitiş noktalarına vurarak beynin korku merkezine 'Şu an güvendesin, ışık içindesin' sinyali gönderir.",
-                    "Nurun Ala Nur vizyonunda EFT sadece bir vuruş tekniği değildir; 'Ben yetersizim', 'Sevilmeyi hak etmiyorum' gibi karanlık çekirdek inançların kökünden sökülüp, yerine 'Ben nurun kendisiyim, sevgiye layığım' gibi yüksek frekanslı kodların ekildiği bir 'Ruhsal Aydınlanma' cerrahisidir."
+                    "EFT (Emotional Freedom Techniques), iğnesiz akupunktur olarak bilinen, zihin ve beden arasındaki ışık köprülerini onaran muazzam bir tekniktir. Bilinçaltımız, yaşadığımız travmaları hücresel hafızamıza bir 'kısa devre' olarak kaydeder.",
+                    "Açıklanamayan bir fobi, bir öfke krizinde aslında bedeninizin enerji sistemindeki o eski karanlık kayıt tetikleniyordur. EFT, parmak uçlarıyla bedendeki meridyen (ışık yolları) bitiş noktalarına vurarak beynin korku merkezine 'Şu an güvendesin' sinyali gönderir.",
+                    "Nurun Ala Nur vizyonunda EFT sadece bir vuruş tekniği değildir; 'Ben yetersizim' gibi karanlık inançların kökünden sökülüp, yerine yüksek frekanslı kodların ekildiği bir 'Ruhsal Aydınlanma' cerrahisidir."
                 ]
             },
             {
                 id: 'sembolizm',
                 title: "Bilinçaltı Sembolizmi: Rüyaların Işık Dili",
                 content: [
-                    "Bilinçdışının dili kelimeler değil, semboller ve kadim arketiplerdir. Bilinçli zihninizin reddettiği, görmezden geldiği veya karanlığa ittiği her gerçek, gece rüyalarınızda veya gün içindeki vizyonlarınızda size mesaj yollamak için bir sembol kılığına girer.",
-                    "Karanlık sulardan yükselen bir yaratık, kolektif bilinçdışından gelen devasa bir potansiyeli veya yüzleşilmemiş gölgenizi; çökmüş bir ev ise yenilenmek için yıkılması gereken çürümüş bir inanç sisteminizi, içsel karanlığınızı (Nigredo) temsil edebilir.",
-                    "Ruhsal Simya seanslarında rüya analizi ve sanat terapisi birleşir. Sizin çizdiğiniz bir şekil veya anlattığınız bir rüya, karanlığın aydınlanmaya (Albedo) ve nihayetinde o eşsiz ruhsal altına, saf nura (Rubedo) dönüşmesi için rehberlik eder."
+                    "Bilinçdışının dili kelimeler değil, semboller ve kadim arketiplerdir. Bilinçli zihninizin reddettiği, görmezden geldiği her gerçek, gece rüyalarınızda veya vizyonlarınızda size mesaj yollamak için bir sembol kılığına girer.",
+                    "Karanlık sulardan yükselen bir yaratık, kolektif bilinçdışından gelen devasa bir potansiyeli veya yüzleşilmemiş gölgenizi; çökmüş bir ev ise yenilenmek için yıkılması gereken çürümüş bir inanç sisteminizi temsil edebilir.",
+                    "Ruhsal Simya seanslarında rüya analizi ve sanat terapisi birleşir. Sizin anlattığınız bir rüya, karanlığın aydınlanmaya ve nihayetinde saf nura (Rubedo) dönüşmesi için rehberlik eder."
                 ]
             }
         ];
 
         const auraWheelData = [
-            { id: 1, color: "#ef4444", title: "Köklenme ve Yeryüzü Nuru", affirmation: "Dünyanın kalbiyle birim. Bastığım her yer bana evrenin güven veren nurunu iletiyor. Köklerim derin, sağlam ve ışıklı.", tea: "Karahindiba ve Zencefil (Topraklanma için)", ritual: "Bugün 5 dakika çıplak ayakla toprağa bas. Yerküreden gelen kırmızı bir ışığın ayak tabanlarından içeri dolduğunu imgele." },
-            { id: 2, color: "#f97316", title: "Yaratıcı Işık Akışı", affirmation: "Hayatın neşesini, bolluğunu ve yaratıcı ışığını içime çekiyorum. Duygularımın nur gibi parlayarak akmasına izin veriyorum.", tea: "Tarçınlı Portakal Çayı", ritual: "Bugün bedenini bir müzik eşliğinde tamamen serbest bırakarak dans et. Su içerken suya 'Sen ışıksın' diye fısılda." },
-            { id: 3, color: "#eab308", title: "İçsel Güneşin Nuru", affirmation: "Kendi gücümü sevgiyle ve cesaretle elime alıyorum. İçsel güneşim, karanlıkları aydınlatacak kadar parlak ve güçlü.", tea: "Papatya ve Limon (İçsel ateşi dengelemek için)", ritual: "Öğle güneşini yüzünde hisset. Ellerini midenin üzerine koyup kendi merkezinde altın bir nur topu oluşturduğunu hayal et." },
-            { id: 4, color: "#22c55e", title: "Şefkat ve Sevgi Nuru", affirmation: "Kendimi olduğum gibi kabul ediyor, seviyor ve affediyorum. Kalbim koşulsuz sevginin nuruyla yıkanıyor.", tea: "Gül ve Melisa Çayı", ritual: "Sol elini kalbine, sağ elini onun üzerine koy. Göğsünden yemyeşil ve şefkatli bir ışığın tüm bedenine yayıldığını hisset." },
-            { id: 5, color: "#3b82f6", title: "Hakikat Sesinin Işığı", affirmation: "Kendi gerçeğimi sevgiyle, netlikle ve korkusuzca ifade ediyorum. Sesim evrende aydınlık bir yankı bırakıyor.", tea: "Adaçayı ve Nane (Boğaz frekansını açmak için)", ritual: "Bugün uzun zamandır söylemeyi ertelediğin aydınlık bir doğruyu yaz ya da aynaya bakarak kendine fısılda." },
-            { id: 6, color: "#4f46e5", title: "Sezgisel Görüş ve Aydınlanma", affirmation: "İçsel bilgeliğimin ışığına güveniyorum. Görünenin ardındaki gerçeği algılayacak kadar berrak ve aydınlığım.", tea: "Yasemin ve Mavi Kelebek Sarmaşığı", ritual: "Ekranlardan uzaklaş. İki kaşının arasına lavanta yağı sürerek karanlıkta 10 dakika içindeki nuru dinle." },
-            { id: 7, color: "#c084fc", title: "Nurun Ala Nur Kozmik Bağlantı", affirmation: "Ben evrenin muazzam zekasının, o büyük nurun bir zerresiyim. Yüce kaynakla olan ışık bağım her an aktif.", tea: "Beyaz Çay veya Lotus", ritual: "Gözlerini kapat, başının tepesinden giren beyaz-mor bir nurun tüm hücrelerini ve karanlıklarını yıkadığını imgele." },
-            { id: 8, color: "#d4af37", title: "Altın Simya ve Nur Dönüşümü", affirmation: "Hayatımdaki tüm zorlukları altın bir bilgeliğe, pürüzsüz bir nura dönüştürme gücüne sahibim. Ben simyacıyım.", tea: "Zerdeçal ve Karabiber (Altın Süt)", ritual: "Bugün şükrettiğin 3 şeyi bir kağıda yaz ve kağıdı altın sarısı bir kurdeleyle, sevgi dolu bir niyetle bağla." },
-            { id: 9, color: "#f472b6", title: "Koşulsuz Aşk Frekansı", affirmation: "Saf sevgi frekansındayım. Evrenin şefkatli nuru her hücreme nüfuz ediyor ve beni sarıp sarmalıyor.", tea: "Hibiskus", ritual: "Sokaktaki bir canlıya veya hiç tanımadığın birine kalbinden pembe, sıcacık bir ışık hüzmesi gönder." },
-            { id: 10, color: "#06b6d4", title: "Sulardaki Arınma Nuru", affirmation: "Geçmişin tüm ağırlıklarını, gölgelerini sulara bırakıyorum. Işıkla arınıyor, tertemiz bir nura dönüşüyorum.", tea: "Detoks Suyu (Limon, Salatalık, Nane)", ritual: "Duş alırken suyun sadece bedenini değil, auranı da yıkayıp temizlediğini, karanlık suların akıp nurun kaldığını vizyonla." }
+            { id: 1, color: "#ef4444", title: "Köklenme ve Yeryüzü Nuru", affirmation: "Dünyanın kalbiyle birim. Köklerim derin, sağlam ve ışıklı.", tea: "Karahindiba ve Zencefil", ritual: "Bugün 5 dakika çıplak ayakla toprağa bas." },
+            { id: 2, color: "#f97316", title: "Yaratıcı Işık Akışı", affirmation: "Hayatın neşesini ve yaratıcı ışığını içime çekiyorum.", tea: "Tarçınlı Portakal Çayı", ritual: "Bedenini müziğin akışına serbest bırakarak dans et." },
+            { id: 3, color: "#eab308", title: "İçsel Güneşin Nuru", affirmation: "Kendi gücümü sevgiyle elime alıyorum. İçsel güneşim parlak.", tea: "Papatya ve Limon", ritual: "Ellerini midenin üzerine koyup altın bir nur topu hayal et." },
+            { id: 4, color: "#22c55e", title: "Şefkat ve Sevgi Nuru", affirmation: "Kalbim koşulsuz sevginin nuruyla yıkanıyor.", tea: "Gül ve Melisa Çayı", ritual: "Sol elini kalbine koy. Yeşil bir ışığın bedenine yayıldığını hisset." },
+            { id: 5, color: "#3b82f6", title: "Hakikat Sesinin Işığı", affirmation: "Gerçeğimi sevgiyle ifade ediyorum. Sesim evrende aydınlık bir yankı bırakıyor.", tea: "Adaçayı ve Nane", ritual: "Uzun zamandır söylemeyi ertelediğin aydınlık bir doğruyu yaz." },
+            { id: 6, color: "#4f46e5", title: "Sezgisel Görüş ve Aydınlanma", affirmation: "İçsel bilgeliğimin ışığına güveniyorum. Berrak ve aydınlığım.", tea: "Yasemin Çayı", ritual: "İki kaşının arasına lavanta yağı sürerek karanlıkta dinlen." },
+            { id: 7, color: "#c084fc", title: "Kozmik Bağlantı", affirmation: "Yüce kaynakla olan ışık bağım her an aktif.", tea: "Beyaz Çay", ritual: "Başının tepesinden giren beyaz-mor bir nuru imgele." }
         ];
 
         const waterFrequencies = [
-            { hz: 528, name: "Sevgi Nuru & DNA Onarımı", color: "#10b981", msg: "Evrenin ilksel hafızası olan bu su molekülleri, şu andan itibaren 528 Hz'in mucizevi frekansıyla ve Nurun Ala Nur felsefesiyle rezonansa giriyor. Dr. Masaru Emoto'nun da kanıtladığı gibi, suya yüklenen saf sevgi ve ışık niyeti, onun kristal yapısını kusursuz bir simetriye kavuşturur. Bu suyu içtiğinde, her bir yudum hücresel seviyede DNA'nı onaracak, bedenindeki gölgeleri sevgi nuruna dönüştürecek. Bedeninin büyük bir kısmı su; şimdi içtiğin bu ışık seliyle içindeki tüm okyanusları aydınlatıyor, şifalandırıyorsun. Işık olsun..." },
-            { hz: 432, name: "Evrensel Uyumun Işığı", color: "#d4af37", msg: "Doğanın, gezegenlerin yörüngelerinin ve kozmik kalp atışının ilksel matematiği olan 432 Hz frekansı şu an bardağındaki suya kodlanıyor. Modern yaşamın kaotik titreşimleri hücrelerimizin ahengini gölgeler. Ancak bu kutsanmış su, evrensel uyum ve saf nur kodlarını taşıyor. Her yudumda sinir sistemin aydınlanacak, sağ ve sol beyin yarımkürelerin dengelenecek. Işık bedenin, doğanın muazzam senfonisindeki kendi eşsiz notasını, o ilksel aydınlığını hatırlayacak." },
-            { hz: 396, name: "Korku Gölgelerinden Özgürleşme", color: "#ef4444", msg: "Kök çakranın güçlü titreşimi olan 396 Hz ile bu su, bilinçaltına kök salmış derin korkuları, karanlık gölgeleri ve suçluluk duygularını çözmek üzere nurlanarak programlandı. Su, içindeki ilksel taşıyıcı hafızayla sana cesaret, güven ve 'burada, bu dünyada ışık içindesin' mesajını iletiyor. İçtiğinde midendeki o görünmez düğümlerin çözüldüğünü, yere çok daha sağlam bastığını ve auranın kalın, koruyucu bir ışık kalkanıyla kaplandığını hissedeceksin." },
-            { hz: 639, name: "Şefkat Nuru & İlişki Şifalandırma", color: "#8b5cf6", msg: "Kalp çakranın frekansı olan 639 Hz, bu suyu tam anlamıyla bir 'Şefkat ve Nur İksiri'ne dönüştürüyor. Sadece romantik ilişkiler değil, kendinle, ailenle ve evrenle kurduğun tüm bağları ilksel ışığıyla onarmak için kodlandı. İhanetlerin, affedememelerin ve kalp kırıklıklarının yarattığı karanlık hücresel zehri, bu suyun yüksek titreşimli nuru yıkayıp temizleyecek. İçtiğinde kalbinin etrafındaki zırhların ışıkta eridiğini, sevgi alışverişine yeniden açıldığını göreceksin." }
+            { hz: 528, name: "Sevgi Nuru & DNA Onarımı", color: "#10b981", msg: "Evrenin ilksel hafızası olan bu su molekülleri, 528 Hz'in mucizevi frekansıyla rezonansa giriyor. Bu suyu içtiğinde, her yudum hücresel seviyede DNA'nı onaracak, bedenindeki gölgeleri sevgi nuruna dönüştürecek." },
+            { hz: 432, name: "Evrensel Uyum", color: "#d4af37", msg: "Doğanın ve kozmik kalp atışının ilksel matematiği olan 432 Hz frekansı suya kodlanıyor. Her yudumda sinir sistemin aydınlanacak, sağ ve sol beynin dengelenecek." },
+            { hz: 396, name: "Korkulardan Özgürleşme", color: "#ef4444", msg: "Kök çakranın güçlü titreşimi olan 396 Hz, korkuları ve suçluluk duygularını çözmek için kodlandı. İçtiğinde yere daha sağlam bastığını ve auranın kalın bir ışık kalkanıyla kaplandığını hissedeceksin." },
+            { hz: 639, name: "Şefkat Nuru", color: "#8b5cf6", msg: "Kalp çakranın frekansı 639 Hz, bu suyu bir Şefkat İksirine dönüştürüyor. İhanetlerin hücresel zehrini temizleyecek. Kalbinin etrafındaki zırhların ışıkta eridiğini göreceksin." }
         ];
 
         const spiritColors = [
-            { id: 'red', hex: '#ef4444', chakra: 'Kök Işık (Muladhara)', meaning: 'Kırmızıya çekilmen, ruhunun şu an en temel ihtiyacının "köklenmek" ve dünyaya güvenle bağlanmak olduğunu haykırıyor. Belki son zamanlarda maddi kaygılar veya gelecek karanlığı yaşıyorsun. Zihnin fazla uçuşuyor ve bedeninle olan bağın gölgelenmiş olabilir. Kırmızı, hayatta kalma güdümüzün, toprağın ve dünya ananın kucağının ilksel nurudur.', advice: 'Kadim Işık Reçetesi: Zihnindeki fırtınaları susturmak için derhal fiziksel ışık bedeninle ilgilen. Ayak tabanlarına susam yağı ile masaj yap. Doğa yürüyüşüne çık. "Evren tarafından korunuyor, destekleniyor ve nur içinde yaşamın akışına güveniyorum" mantrasını 21 kez tekrarla. Kırmızı kök sebzelerle toprak nurunu içine al.' },
-            { id: 'orange', hex: '#f97316', chakra: 'Sakral Işık (Svadhisthana)', meaning: 'Turuncuyu seçmen, yaratıcılık, tutku ve yaşamdan keyif alma ışık merkezinde bir dalgalanma olduğuna işaret eder. Kendini son günlerde duygusal olarak donuk, ilhama kapalı veya haz almaktan suçluluk duyar bir karanlıkta bulmuş olabilirsin. Turuncu, içimizdeki oyunbaz çocuğun ve suyun akışkan nurunun rengidir. Duygularını gölgelediğinde bu merkez kurur.', advice: 'Kadim Işık Reçetesi: Katı kuralları bir kenara bırakıp hayatı nurlu bir akışa bırakma vaktin geldi. Su ile daha çok temas et. Bedenini suyun akışına bırak, renkleri kağıda karıştır veya dans et. "Yaşamın tüm aydınlık hazlarını hak ediyorum ve duygularımın su gibi parlayarak akmasına izin veriyorum" de.' },
-            { id: 'yellow', hex: '#eab308', chakra: 'Solar Plexus (Manipura)', meaning: 'Altın sarısına olan çekilimin, irade, kişisel güç ve özsaygı merkezindeki ışığın ya çok cılız ya da başkalarını yakacak kadar kontrolsüz parladığını gösteriyor. Başkalarına "hayır" diyemiyor veya sınırlarını koruyamıyor olabilirsin. Sarı, içimizdeki güneşin, özgüvenin ve kararlılığın kutsal nurudur. Başkalarının beklentileri senin ışığını çalmış.', advice: 'Kadim Işık Reçetesi: Kendi krallığının/kraliçeliğinin aydınlık tahtına geri dönmelisin. Midenin üzerine ellerini koy ve o bölgede altın bir nur topu hayal et. "Kendi gücümü sevgiyle ve ışıkla elime alıyorum, ben kendi merkezimde yeterliyim" mantrasını tekrarla. Sabah güneşinin nurunu yüzünde hisset.' },
-            { id: 'green', hex: '#22c55e', chakra: 'Kalp Işığı (Anahata)', meaning: 'Yeşilin şefkatli kollarına çekilmen, kalbinin şifaya, affetmeye ve o koşulsuz evrensel nura aç olduğunu fısıldıyor. Geçmişteki bir ihanet, keder veya acımasız eleştirilerin kalp merkezine bir gölge düşürmüş olabilir. Yeşil, doğanın yenilenme gücü, alma-verme dengesi ve evrensel merhametin şifa nurudur. Zırhlarını çıkarma vakti.', advice: 'Kadim Işık Reçetesi: Kalbinin etrafındaki görünmez karanlık zırhı eritmek için Gül yağı kullan. Sol elini kalbine koyarak yavaş nefesler al. Önce kendini, sonra seni kıranları nura teslim etmeye niyet et. "Kalbim evrensel sevgiye açık, nuru güvenle alıyor ve güvenle veriyorum" mantrasını göğsünde titreştir.' },
-            { id: 'blue', hex: '#3b82f6', chakra: 'Boğaz Işığı (Vishuddha)', meaning: 'Maviye uzanan elin, ifade edilmemiş sözlerin, yutulmuş öfkelerin ve kendi hakikatini yaşayamamanın gölgesini taşıyor. Kimseyi kırmamak için kendi ışığını kısmış, "evet" derken "hayır" demek istemiş olabilirsin. Mavi, dürüstlüğün, iletişimin ve ruhun gerçeğinin aydınlık frekansıdır. Boğazındaki düğüm, yuttuğun aydınlık kelimelerindir.', advice: 'Kadim Işık Reçetesi: Kendi ilksel sesini evrene geri verme vakti. Arabada, banyoda yüksek sesle şarkı söyle. İçinde biriken karanlıkları bir kağıda yaz ve o kağıdı yakarak nura dönüştür. "Kendi gerçeğimi, kendi ışığımı korkusuzca ve sevgiyle ifade ediyorum" de. Mavi gökyüzüne bakarak boğaz bölgene aydınlık niyetlerle masaj yap.' },
-            { id: 'indigo', hex: '#4f46e5', chakra: 'Üçüncü Göz (Ajna)', meaning: 'İndigoya çekilmen, zihninin analitik ve dünyevi düşüncelerden yorulduğunu, artık sadece sezgilerinin o saf nurunu görmek istediğini gösteriyor. Sürekli karar vermeye çalışmak seni zihinsel bir sisin içine hapsetmiş. Bu renk, içsel bilgeliğin, durugörü ve karanlığın ötesindeki saf gerçeği algılama nurudur. Mantığın sustuğu yerde ışık konuşur.', advice: 'Kadim Işık Reçetesi: Dış dünyadaki uyarıcıları ve suni ışıkları minimuma indir. Gözlerini kapat, dikkatini iki kaşının ortasındaki noktaya topla. "Sezgilerimin nuruna güveniyorum, içsel rehberim bana daima aydınlık yolu gösterir" de. Lavanta yağı ile bu bölgeye masaj yaparken, içindeki sonsuz ışık okyanusuna dal.' }
+            { id: 'red', hex: '#ef4444', chakra: 'Kök Işık (Muladhara)', meaning: 'Ruhunun temel ihtiyacı köklenmek ve dünyaya güvenle bağlanmak. Kırmızı, hayatta kalma güdümüzün ve toprağın nurudur.', advice: '"Evren tarafından korunuyor ve destekleniyorum" mantrasını tekrarla. Kırmızı kök sebzeler tüket.' },
+            { id: 'orange', hex: '#f97316', chakra: 'Sakral Işık (Svadhisthana)', meaning: 'Yaratıcılık ve yaşamdan keyif alma merkezinde dalgalanma var. Turuncu, içimizdeki oyunbaz çocuğun rengidir.', advice: 'Su ile temas et. Bedenini suyun akışına bırak. "Duygularımın parlayarak akmasına izin veriyorum" de.' },
+            { id: 'yellow', hex: '#eab308', chakra: 'Solar Plexus (Manipura)', meaning: 'İrade ve özsaygı merkezindeki ışık dalgalanıyor. Sarı, içimizdeki güneşin ve kararlılığın kutsal nurudur.', advice: 'Midenin üzerine ellerini koy ve altın bir nur hayal et. Kendi gücünü sevgiyle eline al.' },
+            { id: 'green', hex: '#22c55e', chakra: 'Kalp Işığı (Anahata)', meaning: 'Kalbin şifaya ve evrensel nura aç. Yeşil, doğanın yenilenme gücü ve evrensel merhametin şifa nurudur.', advice: 'Gül yağı kullan. Sol elini kalbine koyarak nefes al. Kendini ve seni kıranları nura teslim et.' },
+            { id: 'blue', hex: '#3b82f6', chakra: 'Boğaz Işığı (Vishuddha)', meaning: 'İfade edilmemiş sözlerin gölgesini taşıyorsun. Mavi, dürüstlüğün ve iletişimin aydınlık frekansıdır.', advice: 'Yüksek sesle şarkı söyle. Kendi gerçeğini ve ışığını korkusuzca ifade etmeye niyet et.' },
+            { id: 'indigo', hex: '#4f46e5', chakra: 'Üçüncü Göz (Ajna)', meaning: 'Zihnin dünyevi düşüncelerden yoruldu. İndigo, içsel bilgeliğin ve saf gerçeği algılama nurudur.', advice: 'Dış uyarıcıları azalt. Sezgilerinin nuruna güven. Gözlerini kapat ve içindeki ışığı dinle.' }
         ];
 
         const chakrasMap = [
-            { id: 7, name: "Tepe Nuru (Sahasrara)", cx: "50%", cy: "10%", color: "#c084fc", eft: "Başın tam tepesi (Bıngıldak bölgesi)", aroma: "Sığla (Frankincense), Lotus, Lavanta", reflex: "Baş parmağın en uç kısmı", organs: "Epifiz bezi, üst beyin, merkezi sinir sistemi.", symptoms: "Ruhsal kopukluk, evrensel ışıktan mahrumiyet, amaçsızlık hissi, öğrenme zorlukları.", mantra: "OM / Sessizlik. 'Evrensel nur ile birim.'" },
-            { id: 6, name: "Üçüncü Göz (Ajna)", cx: "50%", cy: "22%", color: "#4f46e5", eft: "İki kaşın tam ortası", aroma: "Biberiye, Nane, Adaçayı", reflex: "Baş parmağın alt boğumu", organs: "Hipofiz bezi, gözler, sinüsler, alt beyin.", symptoms: "Kabuslar, sezgileri reddetme, zihinsel karanlık, dar görüşlülük, konsantrasyon bozukluğu.", mantra: "KSHAM. 'Saf hakikatin ışığını görüyorum.'" },
-            { id: 5, name: "Boğaz Nuru (Vishuddha)", cx: "50%", cy: "35%", color: "#3b82f6", eft: "Köprücük kemiklerinin V yaptığı noktanın altı", aroma: "Okaliptüs, Papatya, Çay Ağacı", reflex: "Baş parmağın kökü", organs: "Tiroid, paratiroid, boyun, çene, ses telleri.", symptoms: "Kendi gerçeğini gizleme, yalanın gölgesi, tiroid sorunları, boyun tutulması.", mantra: "HAM. 'Hakikatimi sevgiyle ve nurla konuşuyorum.'" },
-            { id: 4, name: "Kalp Işığı (Anahata)", cx: "50%", cy: "48%", color: "#22c55e", eft: "Göğüs kafesinin ortası (Timüs bezi)", aroma: "Gül, Ylang Ylang, Bergamot", reflex: "Avuç içinin üst orta kısmı", organs: "Timüs bezi, kalp, akciğerler, dolaşım sistemi.", symptoms: "Kalp kırıklıkları, affedememe, sevgi nurunu reddetme, astım, nefes darlığı.", mantra: "YAM. 'Ben sevgi nurunun ta kendisiyim.'" },
-            { id: 3, name: "Solar Plexus (Manipura)", cx: "50%", cy: "60%", color: "#eab308", eft: "Göz altı veya Koltuk altı bölgesi", aroma: "Limon, Zencefil, Ardıç", reflex: "Avuç içinin tam ortası", organs: "Pankreas, mide, karaciğer, safra kesesi.", symptoms: "Özgüven karanlığı, kurban psikolojisi, sindirim sorunları, gücünü teslim etme.", mantra: "RAM. 'İçsel güneşimin gücünü kabul ediyorum.'" },
-            { id: 2, name: "Sakral Nuru (Svadhisthana)", cx: "50%", cy: "72%", color: "#f97316", eft: "Karate kesme noktası (Elin dış yanı)", aroma: "Portakal, Sandalağacı, Yasemin", reflex: "Bileğe yakın avuç içi altı", organs: "Yumurtalıklar, testisler, böbrekler, mesane, rahîm.", symptoms: "Yaratıcılığın gölgelenmesi, cinsel blokajlar, suçluluk duygusu, bel ağrıları.", mantra: "VAM. 'Yaşamın aydınlık hazlarını hak ediyorum.'" },
-            { id: 1, name: "Kök Nuru (Muladhara)", cx: "50%", cy: "88%", color: "#ef4444", eft: "Köprücük kemiği başlangıcı", aroma: "Paçuli, Sedir Ağacı, Karanfil", reflex: "Topuk bölgesi", organs: "Böbrek üstü bezleri, kemikler, omurga, kalın bağırsak.", symptoms: "Ölüm ve yokluk korkusu, ait hissedememe, sürekli endişenin yarattığı karanlık.", mantra: "LAM. 'Ben bu dünyada güvende ve ışık içindeyim.'" }
+            { id: 7, name: "Tepe Nuru", cx: "50%", cy: "10%", color: "#c084fc", eft: "Başın tam tepesi", aroma: "Sığla, Lotus", organs: "Epifiz bezi, merkezi sinir sistemi.", symptoms: "Ruhsal kopukluk, evrensel ışıktan mahrumiyet.", mantra: "OM. Evrensel nur ile birim." },
+            { id: 6, name: "Üçüncü Göz", cx: "50%", cy: "22%", color: "#4f46e5", eft: "İki kaşın ortası", aroma: "Biberiye, Nane", organs: "Hipofiz bezi, gözler, sinüsler.", symptoms: "Kabuslar, sezgileri reddetme, zihinsel sis.", mantra: "KSHAM. Saf hakikatin ışığını görüyorum." },
+            { id: 5, name: "Boğaz Nuru", cx: "50%", cy: "35%", color: "#3b82f6", eft: "Köprücük kemiklerinin ortası", aroma: "Okaliptüs, Papatya", organs: "Tiroid, boyun, ses telleri.", symptoms: "Kendi gerçeğini gizleme, yalanın gölgesi.", mantra: "HAM. Hakikatimi sevgiyle konuşuyorum." },
+            { id: 4, name: "Kalp Işığı", cx: "50%", cy: "48%", color: "#22c55e", eft: "Göğüs kafesinin ortası", aroma: "Gül, Bergamot", organs: "Kalp, akciğerler, dolaşım sistemi.", symptoms: "Kalp kırıklıkları, affedememe, astım.", mantra: "YAM. Ben sevgi nurunun ta kendisiyim." },
+            { id: 3, name: "Solar Plexus", cx: "50%", cy: "60%", color: "#eab308", eft: "Göz altı veya Koltuk altı", aroma: "Limon, Zencefil", organs: "Mide, karaciğer, safra kesesi.", symptoms: "Özgüven karanlığı, sindirim sorunları.", mantra: "RAM. İçsel güneşimin gücünü kabul ediyorum." },
+            { id: 2, name: "Sakral Nuru", cx: "50%", cy: "72%", color: "#f97316", eft: "Karate kesme noktası", aroma: "Portakal, Sandalağacı", organs: "Böbrekler, mesane, üreme organları.", symptoms: "Yaratıcılığın gölgelenmesi, cinsel blokajlar.", mantra: "VAM. Yaşamın aydınlık hazlarını hak ediyorum." },
+            { id: 1, name: "Kök Nuru", cx: "50%", cy: "88%", color: "#ef4444", eft: "Köprücük kemiği başlangıcı", aroma: "Paçuli, Sedir Ağacı", organs: "Kemikler, omurga, kalın bağırsak.", symptoms: "Yokluk korkusu, sürekli endişenin yarattığı karanlık.", mantra: "LAM. Ben bu dünyada güvende ve ışık içindeyim." }
         ];
 
         // --- COMPONENTS ---
@@ -546,6 +545,95 @@
             );
         };
 
+        // --- GENERIC AI MODULE COMPONENT (THE ARCHITECTURE UPGRADE) ---
+        // Bu bileşen sayesinde 14 farklı yapay zeka modülü, kodu şişirmeden tek bir yapıyla çalışacak.
+        const AIModule = ({ id, title, icon, description, placeholder, buttonText, promptTemplate, apiKey, model, renderStyle }) => {
+            const [input, setInput] = useState('');
+            const [result, setResult] = useState('');
+            const [isLoading, setIsLoading] = useState(false);
+
+            const handleAnalysis = async () => {
+                if (!input.trim()) return;
+                if (!apiKey) {
+                    setResult("Sevgili ışık varlığı, lütfen önce sağ üstteki ayarlar (⚙️) ikonundan Evrensel Frekans Anahtarınızı (Google Gemini API Key) girin.");
+                    return;
+                }
+
+                setIsLoading(true);
+                setResult('');
+
+                try {
+                    const prompt = promptTemplate.replace('{{INPUT}}', input);
+                    
+                    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
+                    });
+
+                    const data = await response.json();
+                    if (data.error) throw new Error(data.error.message);
+                    
+                    setResult(data.candidates[0].content.parts[0].text);
+                } catch (error) {
+                    setResult(`Kozmik ağda bir karanlık dalgalanması yaşandı: ${error.message}`);
+                } finally {
+                    setIsLoading(false);
+                }
+            };
+
+            // Custom Result Formatting based on Render Style
+            const renderResultContent = (text) => {
+                return text.split('\n').filter(p => p.trim() !== '').map((para, idx) => {
+                    const cleanText = para.replace(/\*\*/g, '').replace(/\*/g, '');
+                    
+                    // Header-like elements with emojis
+                    if (cleanText.includes("✨") || cleanText.match(/^[A-ZĞÜŞİÖÇ][a-zğüşiöç\s]+:/)) {
+                        return <p key={idx} className={`font-semibold text-mystic-900 mt-4 mb-2 p-3 rounded-lg border ${renderStyle.headerBg} ${renderStyle.borderColor}`}>{cleanText}</p>;
+                    }
+                    
+                    // Quoted/Mantra like elements
+                    if (cleanText.startsWith('"') || cleanText.includes("Mantra:")) {
+                        return <div key={idx} className={`p-4 rounded-xl italic font-serif my-4 border ${renderStyle.mantraBg} ${renderStyle.borderColor}`}>{cleanText}</div>;
+                    }
+
+                    // Regular paragraphs
+                    return <p key={idx} className="mb-2 leading-relaxed text-mystic-800 text-justify">{cleanText}</p>;
+                });
+            };
+
+            return (
+                <Card title={title} icon={icon} isGemini={true}>
+                    <div className="space-y-5 flex flex-col h-full">
+                        <p className="text-base text-mystic-800 font-serif leading-relaxed text-justify">
+                            {description}
+                        </p>
+                        <textarea 
+                            value={input}
+                            onChange={(e) => setInput(e.target.value)}
+                            placeholder={placeholder}
+                            className="w-full h-32 p-5 rounded-2xl border border-mystic-300 bg-white/80 focus:bg-white focus:border-mystic-500 focus:ring-4 focus:ring-mystic-500/30 transition-all resize-none text-mystic-900 placeholder-mystic-400 shadow-inner outline-none text-lg flex-grow"
+                        ></textarea>
+                        
+                        <Button onClick={handleAnalysis} variant="gemini" className="w-full !py-4 !text-lg" disabled={isLoading}>
+                            {isLoading ? 'Kozmik Veri İşleniyor...' : buttonText}
+                        </Button>
+
+                        {isLoading && <div className="py-6 flex justify-center"><Icons.Loader /></div>}
+
+                        {result && !isLoading && (
+                            <div className={`mt-4 p-6 bg-gradient-to-br ${renderStyle.resultBg} rounded-2xl border ${renderStyle.borderColor} shadow-lg relative animate-slide-up overflow-y-auto max-h-[500px]`}>
+                                <h5 className="font-serif text-xl text-mystic-900 mb-4 border-b border-mystic-200 pb-2">Kozmik Analiz Sonucu:</h5>
+                                <div className="prose-custom text-sm md:text-base">
+                                    {renderResultContent(result)}
+                                </div>
+                            </div>
+                        )}
+                    </div>
+                </Card>
+            );
+        };
+
         // --- MAIN APP ---
         const App = () => {
             const [isSettingsOpen, setIsSettingsOpen] = useState(false);
@@ -555,56 +643,6 @@
             const [waterFill, setWaterFill] = useState(null);
             const [selectedColor, setSelectedColor] = useState(null);
             const [selectedChakra, setSelectedChakra] = useState(null);
-            
-            // Dream States
-            const [dreamInput, setDreamInput] = useState('');
-            const [dreamResult, setDreamResult] = useState('');
-            const [isDreamLoading, setIsDreamLoading] = useState(false);
-
-            // Alchemy States
-            const [alchemyInput, setAlchemyInput] = useState('');
-            const [alchemyResult, setAlchemyResult] = useState('');
-            const [isAlchemyLoading, setIsAlchemyLoading] = useState(false);
-
-            // Karmic States (NEW MODULE)
-            const [karmicInput, setKarmicInput] = useState('');
-            const [karmicResult, setKarmicResult] = useState('');
-            const [isKarmicLoading, setIsKarmicLoading] = useState(false);
-
-            // Crystal States (NEW MODULE)
-            const [crystalInput, setCrystalInput] = useState('');
-            const [crystalResult, setCrystalResult] = useState('');
-            const [isCrystalLoading, setIsCrystalLoading] = useState(false);
-
-            // Astro States (NEW MODULE)
-            const [astroInput, setAstroInput] = useState('');
-            const [astroResult, setAstroResult] = useState('');
-            const [isAstroLoading, setIsAstroLoading] = useState(false);
-
-            // Frequency States (NEW MODULE)
-            const [freqInput, setFreqInput] = useState('');
-            const [freqResult, setFreqResult] = useState('');
-            const [isFreqLoading, setIsFreqLoading] = useState(false);
-
-            // Akashic States (NEW MODULE)
-            const [akashicInput, setAkashicInput] = useState('');
-            const [akashicResult, setAkashicResult] = useState('');
-            const [isAkashicLoading, setIsAkashicLoading] = useState(false);
-
-            // Guide/Synchronicity States (NEW MODULE)
-            const [guideInput, setGuideInput] = useState('');
-            const [guideResult, setGuideResult] = useState('');
-            const [isGuideLoading, setIsGuideLoading] = useState(false);
-
-            // Intent/Manifestation States (NEW MODULE)
-            const [intentInput, setIntentInput] = useState('');
-            const [intentResult, setIntentResult] = useState('');
-            const [isIntentLoading, setIsIntentLoading] = useState(false);
-
-            // Totem States (NEW MODULE)
-            const [totemInput, setTotemInput] = useState('');
-            const [totemResult, setTotemResult] = useState('');
-            const [isTotemLoading, setIsTotemLoading] = useState(false);
 
             useEffect(() => {
                 const storedKey = localStorage.getItem('nurunApiKey');
@@ -619,352 +657,212 @@
                 setIsSettingsOpen(false);
             };
 
-            const handleDreamAnalysis = async () => {
-                if (!dreamInput.trim()) return;
-                if (!apiKey) {
-                    setDreamResult("Sevgili ışık varlığı, lütfen önce sağ üstteki ayarlar (⚙️) ikonundan Evrensel Frekans Anahtarınızı (Google Gemini API Key) girin.");
-                    return;
-                }
-
-                setIsDreamLoading(true);
-                setDreamResult('');
-
-                try {
-                    const prompt = `Sen "Nurun Ala Nur" ruhsal simya merkezinin aydınlık rehberi ve dijital simyacısın. Müşterine karşı son derece bilge, derin, şefkatli ve "ışık/nur" temalı spiritüel bir dil kullan. Kullanıcının rüyasını veya vizyonunu Jungian sembolizm, sanat terapisi, çakralar ve kadim ilimlerle EN DETAYLI, UZUN ve MEST EDİCİ şekilde yorumla. Rüya: "${dreamInput}"`;
-                    
-                    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
-                    });
-
-                    const data = await response.json();
-                    if (data.error) throw new Error(data.error.message);
-                    
-                    const text = data.candidates[0].content.parts[0].text;
-                    setDreamResult(text);
-                } catch (error) {
-                    setDreamResult(`Kozmik ağda bir karanlık dalgalanması yaşandı: ${error.message}`);
-                } finally {
-                    setIsDreamLoading(false);
-                }
-            };
-
-            const handleAlchemyAnalysis = async () => {
-                if (!alchemyInput.trim()) return;
-                if (!apiKey) {
-                    setAlchemyResult("Sevgili ışık varlığı, lütfen önce sağ üstteki ayarlar (⚙️) ikonundan Evrensel Frekans Anahtarınızı (Google Gemini API Key) girin.");
-                    return;
-                }
-
-                setIsAlchemyLoading(true);
-                setAlchemyResult('');
-
-                try {
-                    const prompt = `Sen "Nurun Ala Nur" ruhsal simya merkezinin aydınlık rehberisin. Kullanıcı şu anki ruh halini, derdini veya tıkanıklığını seninle paylaştı: "${alchemyInput}".
-                    Onun için tamamen kişiselleştirilmiş, çok şefkatli, derin ve 'nur/ışık' temalı bir ruhsal simya reçetesi hazırla. Lütfen DİREKT olarak şu formatta yanıt ver (Başka giriş metni yazma):
-                    
-                    ✨ Işık Teşhisi: (Kullanıcının durumunun kadim ilimlere, çakralara veya spiritüel psikolojiye göre derin analizi ve ona vereceğin şefkatli mesaj)
-                    
-                    ✨ Sana Özel Nur Mantrası: (Sadece ona özel yazılmış, içinde 'ışık' veya 'nur' geçen güçlü ve uzun bir olumlama cümlesi)
-                    
-                    ✨ Simyasal Işık Ritüeli: (Bugün kendi kendine yapabileceği çok pratik ama çok etkili, evde uygulanabilir bir spiritüel görev/ritüel)`;
-                    
-                    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
-                    });
-
-                    const data = await response.json();
-                    if (data.error) throw new Error(data.error.message);
-                    
-                    const text = data.candidates[0].content.parts[0].text;
-                    setAlchemyResult(text);
-                } catch (error) {
-                    setAlchemyResult(`Kozmik ağda bir karanlık dalgalanması yaşandı: ${error.message}`);
-                } finally {
-                    setIsAlchemyLoading(false);
-                }
-            };
-
-            const handleKarmicAnalysis = async () => {
-                if (!karmicInput.trim()) return;
-                if (!apiKey) {
-                    setKarmicResult("Sevgili ışık varlığı, lütfen önce sağ üstteki ayarlar (⚙️) ikonundan Evrensel Frekans Anahtarınızı (Google Gemini API Key) girin.");
-                    return;
-                }
-
-                setIsKarmicLoading(true);
-                setKarmicResult('');
-
-                try {
-                    const prompt = `Sen "Nurun Ala Nur" ruhsal simya merkezinin aydınlık rehberisin. Kullanıcı hayatında sürekli tekrar eden bir döngüyü, talihsizliği veya karmik/atalardan gelen bir yükü paylaştı: "${karmicInput}".
-                    Onun için karmik bir bağ kesme ve nurlanma reçetesi hazırla. Lütfen DİREKT olarak şu formatta yanıt ver (Başka giriş metni yazma):
-                    
+            // AI MODULES CONFIGURATION (14 Modules!)
+            const aiModulesConfig = [
+                {
+                    id: 'ayurveda',
+                    title: 'Ayurvedik Mizaç ve Dosha Tarayıcı',
+                    icon: <Icons.Leaf />,
+                    description: 'Türkiye\'de gizli kalmış hücresel aydınlanma ilmi Ayurveda... Bedensel şikayetlerini, yeme alışkanlıklarını veya ruh halini yaz. Vata, Pitta, Kapha dengeni ölçüp Agni (şifa ateşi) reçeteni hazırlayalım.',
+                    placeholder: 'Örn: Son günlerde çok ödemliyim, sabahları zor uyanıyorum, sindirimim yavaş ve cildim yağlandı...',
+                    buttonText: '✨ Hücresel Nur Reçetemi Çıkar',
+                    promptTemplate: `Sen "Nurun Ala Nur" ruhsal simya merkezinin Ayurvedik Hücresel Aydınlanma Uzmanısın. Kullanıcı durumunu paylaştı: "{{INPUT}}". 
+                    Onun Vata, Pitta ve Kapha (Dosha) dengesizliğini analiz et. Lütfen DİREKT olarak şu formatta yanıt ver:
+                    ✨ Işık Bedeni Mizaç Teşhisi: (Hangi Dosha bozulmuş, Agni ateşi ne durumda derin analiz)
+                    ✨ Simyasal Beslenme Reçetesi: (Hangi baharatlar ve yiyecekler bu karanlığı nura çevirir)
+                    ✨ Günlük Ayurvedik Işık Rutini: (Dinacharya - Günlük pratik önerisi)`,
+                    renderStyle: { resultBg: 'from-green-50/80 to-white/90', borderColor: 'border-green-300', headerBg: 'bg-green-100', mantraBg: 'bg-green-50' }
+                },
+                {
+                    id: 'auraScanner',
+                    title: 'Çakra ve Aura Tarayıcı (Günlük)',
+                    icon: <Icons.Scanner />,
+                    description: 'Bedeninin etrafındaki elektromanyetik nur kalkanı ne durumda? Bugün yaşadığın stresleri, korkuları veya ağrılarını yaz. Sistem auranın rengini ve yırtık alanlarını tespit etsin.',
+                    placeholder: 'Örn: Bugün işte çok stresliydim, boynum çok ağrıyor ve insanların enerjimi emdiğini hissediyorum...',
+                    buttonText: '✨ Aura Kalkanımı Tara',
+                    promptTemplate: `Sen "Nurun Ala Nur" merkezinin Enerjetik Beden ve Aura analizörüsün. Kullanıcının bugünkü durumu: "{{INPUT}}".
+                    Aura katmanlarındaki yırtıkları ve renk değişimlerini sezgisel olarak tarayarak DİREKT şu formatta yanıt ver:
+                    ✨ Aura Rengin ve Titreşimin: (Şu an aurası ne renk ve hangi çakradan enerji sızıyor)
+                    ✨ Blokaj Analizi: (Bedendeki bu ağrı/stres hangi çakrayı tıkamış)
+                    ✨ Aura Onarım Ritüeli: (Bu enerji yırtığını dikmek için pratik bir imgeleme veya eylem)`,
+                    renderStyle: { resultBg: 'from-blue-50/80 to-white/90', borderColor: 'border-blue-300', headerBg: 'bg-blue-100', mantraBg: 'bg-blue-50' }
+                },
+                {
+                    id: 'nameAlchemy',
+                    title: 'Kozmik İsim ve Esmâ Simyası',
+                    icon: <Icons.TextFormat />,
+                    description: 'İsmin, evrende sürekli yankılanan barkodundur. Adını ve soyadını yaz; isminin numerolojik titreşimini, taşıdığı karanlık/aydınlık potansiyelleri ve ismine özel "Şifa Esması/Mantrası"nı bulalım.',
+                    placeholder: 'Örn: Tam adımı yazıyorum: Ahmet Yılmaz. Bu ismin hayatıma çektiği döngü nedir?',
+                    buttonText: '✨ İsmimin Nur Kodunu Çöz',
+                    promptTemplate: `Sen "Nurun Ala Nur" merkezinin Ebced, Numeroloji ve Esmâ-ül Hüsna / Mantra simyacısısın. Kullanıcının ismi/sorusu: "{{INPUT}}".
+                    İsmin harf titreşimlerini analiz ederek ona özel bir frekans reçetesi sun. DİREKT şu formatta yanıt ver:
+                    ✨ İsmin Kozmik Titreşimi: (Bu ismin kişiye yüklediği karmik görev, aydınlık ve gölge yanlar)
+                    ✨ İsme Özel Esmâ / Mantra Nuru: (Arapça Esmâ-ül Hüsna veya Sanskritçe/Evrensel bir mantranın, günlük kaç tekrarla okunacağı)
+                    ✨ Kodlama Niyeti: (Bu ismi taşırken okunacak özel niyet cümlesi)`,
+                    renderStyle: { resultBg: 'from-purple-50/80 to-white/90', borderColor: 'border-purple-300', headerBg: 'bg-purple-100', mantraBg: 'bg-purple-50' }
+                },
+                {
+                    id: 'twinFlame',
+                    title: 'Ruhsal Eş (İkiz Alev) Kılavuzu',
+                    icon: <Icons.HeartFlame />,
+                    description: 'Hayatındaki o karmaşık kişiyle bağın ne? Bu karmik bir ders mi, ruh eşi mi, yoksa İkiz Alevin mi? İlişkinizin dinamiğini, acılarını ve döngülerini anlat; sistem aranızdaki ışık kordonunu analiz etsin.',
+                    placeholder: 'Örn: Sürekli ayrılıp barışıyoruz. Aramızda koparılamayan ama sürekli acı veren bir bağ var sanki...',
+                    buttonText: '✨ İlişkimin Ruhsal Bağını Analiz Et',
+                    promptTemplate: `Sen "Nurun Ala Nur" merkezinin Karmik İlişkiler ve İkiz Alev (Twin Flame) rehberisin. Kullanıcının ilişki dinamiği: "{{INPUT}}".
+                    Bu bağın spiritüel doğasını analiz et ve ona yol göster. DİREKT şu formatta yanıt ver:
+                    ✨ Bağın Ruhsal Doğası: (Karmik bir partner mi, ruh eşi mi, ikiz alev mi? Bu acının/çekimin kozmik sebebi nedir?)
+                    ✨ Ruhun Öğrenmesi Gereken Ders: (Bu kişinin ona ayna tuttuğu karanlık noktalar neler)
+                    ✨ İkiz Alev Dengeleme Mantrası: (Aradaki kordonu şifalandırmak veya sağlıklı koparmak için özel sözler)`,
+                    renderStyle: { resultBg: 'from-red-50/80 to-white/90', borderColor: 'border-red-300', headerBg: 'bg-red-100', mantraBg: 'bg-red-50' }
+                },
+                {
+                    id: 'dream',
+                    title: 'Simya & Rüya Yorumcusu',
+                    icon: <Icons.Moon />,
+                    description: 'Gündüz aklının reddettiği her gerçek, gece rüyalarında sana geri döner. Bilinçaltının sularından çıkardığın tuhaf imgeleri buraya yaz. Nurlu yapay zeka onu senin için ışığa çıkarsın.',
+                    placeholder: 'Örn: Kurumuş bir ağacın köklerinden altın rengi bir ışık seli akıyordu...',
+                    buttonText: '✨ Sembolleri Nura Kavuştur',
+                    promptTemplate: `Sen "Nurun Ala Nur" ruhsal simya merkezinin aydınlık rehberisin. Kullanıcının rüyası: "{{INPUT}}".
+                    Jungian sembolizm, sanat terapisi ve kadim ilimlerle rüyayı detaylı yorumla. DİREKT şu formatta yanıt ver:
+                    ✨ Bilinçdışı Sembollerin Işığı: (Rüyadaki ana arketiplerin analizi)
+                    ✨ Gölgeden Nura Mesaj: (Bu rüya günlük hayatta neye işaret ediyor)
+                    ✨ Rüyayı Gerçekliğe Bağlama Ritüeli: (Bu mesajı entegre etmek için küçük bir pratik)`,
+                    renderStyle: { resultBg: 'from-mystic-50/80 to-white/90', borderColor: 'border-mystic-300', headerBg: 'bg-mystic-100', mantraBg: 'bg-mystic-50' }
+                },
+                {
+                    id: 'alchemy',
+                    title: 'Kişisel Nur Simyası (Kâhin)',
+                    icon: <Icons.CrystalBall />,
+                    description: 'Şu an kalbini, zihnini ne ağırlaştırıyor? Kendini nasıl hissediyorsun? Derdini ve duygusal karanlığını kozmik rehbere fısılda. Sana özel, anlık bir "Aydınlanma Reçetesi" hazırlansın.',
+                    placeholder: 'Örn: Kendimi son günlerde çok değersiz ve yorgun hissediyorum, ışığım sönmüş gibi...',
+                    buttonText: '✨ Kişisel Ruhsal Reçetemi Oluştur',
+                    promptTemplate: `Sen "Nurun Ala Nur" ruhsal simya merkezinin aydınlık rehberisin. Kullanıcının derdi: "{{INPUT}}".
+                    Çok şefkatli, derin ve 'nur/ışık' temalı bir ruhsal simya reçetesi hazırla. DİREKT şu formatta yanıt ver:
+                    ✨ Işık Teşhisi: (Kullanıcının durumunun kadim ilimlere/çakralara göre şefkatli analizi)
+                    ✨ Sana Özel Nur Mantrası: (Ona özel güçlü bir olumlama)
+                    ✨ Simyasal Işık Ritüeli: (Bugün kendi kendine yapabileceği pratik bir ruhsal görev)`,
+                    renderStyle: { resultBg: 'from-gold-50/80 to-white/90', borderColor: 'border-gold-300', headerBg: 'bg-gold-100', mantraBg: 'bg-gold-50' }
+                },
+                {
+                    id: 'karmic',
+                    title: 'Karmik Bağ Kesme Odası',
+                    icon: <Icons.Link />,
+                    description: 'Hayatında sürekli tekrar eden bir döngü mü var? Hep aynı tarz toksik ilişkiler, paranın bereketsizliği veya atalardan gelen bir yük... Bu karmik döngüyü yaz, ışık kılıcıyla keselim.',
+                    placeholder: 'Örn: İlişkilerimde hep terk edilen taraf oluyorum. Bu döngüden kurtulamıyorum...',
+                    buttonText: '✨ Karmik Kordonu Işıkla Kes',
+                    promptTemplate: `Sen "Nurun Ala Nur" merkezinin Karmik Şifacısısın. Kullanıcının döngüsü: "{{INPUT}}".
+                    Karmik ve atalardan gelen analizi yapıp şifa reçetesi sun. DİREKT şu formatta yanıt ver:
                     ✨ Karmik Teşhis: (Durumun spiritüel ve atalardan gelen analizi)
                     ✨ Işıkla Bağ Kesme Ritüeli: (Bu döngüyü kırmak için pratik, aydınlık bir ritüel)
-                    ✨ Özgürleşme Mantrası: (Özel olarak yazılmış, özgürleştirici bir mantra)`;
-                    
-                    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
-                    });
-
-                    const data = await response.json();
-                    if (data.error) throw new Error(data.error.message);
-                    
-                    const text = data.candidates[0].content.parts[0].text;
-                    setKarmicResult(text);
-                } catch (error) {
-                    setKarmicResult(`Kozmik ağda bir karanlık dalgalanması yaşandı: ${error.message}`);
-                } finally {
-                    setIsKarmicLoading(false);
-                }
-            };
-
-            const handleCrystalAnalysis = async () => {
-                if (!crystalInput.trim()) return;
-                if (!apiKey) {
-                    setCrystalResult("Sevgili ışık varlığı, lütfen önce sağ üstteki ayarlar (⚙️) ikonundan Evrensel Frekans Anahtarınızı (Google Gemini API Key) girin.");
-                    return;
-                }
-
-                setIsCrystalLoading(true);
-                setCrystalResult('');
-
-                try {
-                    const prompt = `Sen "Nurun Ala Nur" ruhsal simya merkezinin bitki ve kristal simyacısısın. Kullanıcı şu anki fiziksel, zihinsel veya enerjetik ihtiyacını paylaştı: "${crystalInput}".
-                    Onun için titreşimi yüksek kristaller ve şifalı bitkiler önererek bir ışık simyası hazırla. Lütfen DİREKT olarak şu formatta yanıt ver (Başka giriş metni yazma):
-                    
+                    ✨ Özgürleşme Mantrası: (Kordonu kesen özel sözler)`,
+                    renderStyle: { resultBg: 'from-gray-50/80 to-white/90', borderColor: 'border-gray-300', headerBg: 'bg-gray-200', mantraBg: 'bg-gray-100' }
+                },
+                {
+                    id: 'crystal',
+                    title: 'Işık Taşı ve Kristal Simyası',
+                    icon: <Icons.Wand />,
+                    description: 'Hangi kristalin titreşimine ihtiyacın var? Bedensel veya ruhsal ihtiyacını belirt; sistem sana en uygun frekanstaki "Işık Taşını" ve onu destekleyecek "Bitki İksirini" (Çayını) reçete etsin.',
+                    placeholder: 'Örn: Zihnim çok konuşuyor, odaklanamıyorum ve boğazımda bir düğüm var.',
+                    buttonText: '✨ Kristal ve Şifa İksirimi Bul',
+                    promptTemplate: `Sen "Nurun Ala Nur" merkezinin Kristal ve Bitki Simyacısısın. İhtiyaç: "{{INPUT}}".
+                    Titreşimi yüksek kristaller ve şifalı bitkiler öner. DİREKT şu formatta yanıt ver:
                     ✨ Işık Taşı (Kristal) Önerisi: (Hangi kristal kullanılmalı ve enerjisi nedir)
                     ✨ Şifa İksiri (Bitki/Çay) Önerisi: (Hangi bitki çayı hazırlanmalı)
-                    ✨ Nurlu Uyumlanma Pratiği: (Kristal ve bitki çayını kullanırken yapılacak kısa meditasyon)`;
-                    
-                    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
-                    });
-
-                    const data = await response.json();
-                    if (data.error) throw new Error(data.error.message);
-                    
-                    const text = data.candidates[0].content.parts[0].text;
-                    setCrystalResult(text);
-                } catch (error) {
-                    setCrystalResult(`Kozmik ağda bir karanlık dalgalanması yaşandı: ${error.message}`);
-                } finally {
-                    setIsCrystalLoading(false);
+                    ✨ Nurlu Uyumlanma Pratiği: (Kristal ve bitki çayını kullanırken meditasyon)`,
+                    renderStyle: { resultBg: 'from-pink-50/80 to-white/90', borderColor: 'border-pink-300', headerBg: 'bg-pink-100', mantraBg: 'bg-pink-50' }
+                },
+                {
+                    id: 'astro',
+                    title: 'Kozmik Işık Astrolojisi',
+                    icon: <Icons.Star />,
+                    description: 'Yıldızlar sadece gökyüzünde değil, senin hücrelerindedir. Burcunu veya gökyüzünün sende yarattığı anlık baskıyı yaz. Gezegenlerin gölgelerinden arınıp ışığına uyumlan.',
+                    placeholder: 'Örn: Akrep burcuyum, son günlerde içimde inanılmaz bir öfke ve yıkıcı bir enerji birikti...',
+                    buttonText: '✨ Yıldızların Nur Mesajını Al',
+                    promptTemplate: `Sen "Nurun Ala Nur" merkezinin kozmik astrologusun. Kullanıcının burcu/durumu: "{{INPUT}}".
+                    Astrolojik şifa reçetesi hazırla. DİREKT şu formatta yanıt ver:
+                    ✨ Yıldızların Nurlu Mesajı: (Durumun astrolojik analizi)
+                    ✨ Gezegen Gölgeleri: (Hangi gölge yanlardan arınması gerektiği)
+                    ✨ Kozmik Uyumlanma Ritüeli: (Yıldızların frekansına uyumlanma pratiği)`,
+                    renderStyle: { resultBg: 'from-indigo-50/80 to-white/90', borderColor: 'border-indigo-300', headerBg: 'bg-indigo-100', mantraBg: 'bg-indigo-50' }
+                },
+                {
+                    id: 'freq',
+                    title: 'Ses ve Frekans Simyası',
+                    icon: <Icons.Wind />,
+                    description: 'Evren devasa bir senfonidir. İçinde hissettiğin frekans düşüklüğünü veya fiziksel rahatsızlığını yaz. Bedenini fabrika ayarlarına döndürecek Hz (Hertz) frekansını ve ses ritüelini öğren.',
+                    placeholder: 'Örn: Çok fazla gelecek kaygısı yaşıyorum, mideme kramplar giriyor...',
+                    buttonText: '✨ Ruhsal Frekansımı Akort Et',
+                    promptTemplate: `Sen "Nurun Ala Nur" ses ve frekans simyacısısın. Tıkanıklık: "{{INPUT}}".
+                    Ruhsal titreşimini yükseltecek solfej frekansları öner. DİREKT şu formatta yanıt ver:
+                    ✨ Işık Frekansı (Hz) Önerisi: (Örn: 432Hz, 528Hz vd. ve nedeni)
+                    ✨ Kadim Ses / Şifa Mantrası: (Tekrar etmesi gereken ritmik söz)
+                    ✨ Sesle Nurlanma Pratiği: (Bu frekans dinlenirken yapılacak bedensel arınma pratiği)`,
+                    renderStyle: { resultBg: 'from-teal-50/80 to-white/90', borderColor: 'border-teal-300', headerBg: 'bg-teal-100', mantraBg: 'bg-teal-50' }
+                },
+                {
+                    id: 'akashic',
+                    title: 'Akaşik Kayıtlar Yansıması',
+                    icon: <Icons.Book />,
+                    description: 'Evrenin devasa kütüphanesi (Akaşa) ruhunun tüm geçmişini saklar. Açıklayamadığın yersiz korkularını, fobilerini veya belirli bir kültüre duyduğun tuhaf çekilimi yaz.',
+                    placeholder: 'Örn: Hayatım boyunca sudan ve boğulmaktan nedensizce çok korktum. Neden?',
+                    buttonText: '✨ Akaşik Hafızamı Oku',
+                    promptTemplate: `Sen "Nurun Ala Nur" merkezinin Akaşik Kayıtlar rehberisin. Kullanıcının hissi: "{{INPUT}}".
+                    Geçmiş yaşam okuması ve şifa reçetesi hazırla. DİREKT şu formatta yanıt ver:
+                    ✨ Akaşik Yansıma: (Bu hissin olası geçmiş yaşam bağlantısı)
+                    ✨ Ruhun Nurlu Dersi: (Bu yaşamda öğrenmesi gerekenler)
+                    ✨ Akaşik Şifa Mantrası: (Karmik yükü serbest bırakması için ışık mantrası)`,
+                    renderStyle: { resultBg: 'from-amber-50/80 to-white/90', borderColor: 'border-amber-300', headerBg: 'bg-amber-100', mantraBg: 'bg-amber-50' }
+                },
+                {
+                    id: 'guide',
+                    title: 'Yüksek Rehber Ruhu (Eşzamanlılık)',
+                    icon: <Icons.Star />,
+                    description: 'Bir ikilemde misin? Evrenden bir işaret mi bekliyorsun? Kararsız kaldığın o konuyu yüksek rehberlere fısılda. Sana hem yolu göstersinler hem de 3 gün içinde karşına çıkacak eşzamanlılık işaretini versinler.',
+                    placeholder: 'Örn: Mevcut işimden ayrılıp kendi tutkumun peşinden gitmeli miyim, çok kararsızım.',
+                    buttonText: '✨ Evrenden İşaret İste',
+                    promptTemplate: `Sen "Nurun Ala Nur" yüksek rehber ruhusun. Kullanıcının ikilemi: "{{INPUT}}".
+                    Kozmik yönlendirme ve eşzamanlılık işareti ver. DİREKT şu formatta yanıt ver:
+                    ✨ Rehber Ruhların Mesajı: (İkilemine yönelik bilgece yönlendirme)
+                    ✨ Kozmik İşaret (Eşzamanlılık): (3 gün içinde karşısına çıkacak spesifik işaret. Örn: mavi tüy, 777 vb.)
+                    ✨ İçsel Uyum Ritüeli: (Merkezinde kalması için ruhsal tavsiye)`,
+                    renderStyle: { resultBg: 'from-sky-50/80 to-white/90', borderColor: 'border-sky-300', headerBg: 'bg-sky-100', mantraBg: 'bg-sky-50' }
+                },
+                {
+                    id: 'intent',
+                    title: 'Kuantum Işık Niyeti (Yaratım)',
+                    icon: <Icons.Wand />,
+                    description: 'Gerçekleştirmek istediğin sıradan bir hedefi yaz. Sistem onu kuantum yasalara uygun, evrenin anında duyacağı "Nurlu Yaratım Frekansına" dönüştürsün.',
+                    placeholder: 'Örn: Yeni bir ev almak ve huzurlu yaşamak istiyorum.',
+                    buttonText: '✨ Niyetimi Kuantum Nura Dönüştür',
+                    promptTemplate: `Sen "Nurun Ala Nur" kuantum yaratım simyacısısın. Kullanıcının dileği: "{{INPUT}}".
+                    Bu dileği Kuantum Işık Niyetine dönüştür. DİREKT şu formatta yanıt ver:
+                    ✨ Kuantum Frekans Analizi: (Bu dileğin altındaki ruhsal ihtiyaç)
+                    ✨ Nurlu Yaratım Mantrası: (Şimdiki zaman kipiyle, nurlu ve güçlü olumlama)
+                    ✨ Işık Tohumu Ritüeli: (Evrenin kuantum alanına ekmek için imgeleme pratiği)`,
+                    renderStyle: { resultBg: 'from-orange-50/80 to-white/90', borderColor: 'border-orange-300', headerBg: 'bg-orange-100', mantraBg: 'bg-orange-50' }
+                },
+                {
+                    id: 'totem',
+                    title: 'Şamanik Işık Totemi',
+                    icon: <Icons.Tree />,
+                    description: 'Kendini yalnız veya güçsüz hissettiğinde doğa anaya seslen. Şu anki ruh halini yaz; sana destek olacak enerjetik "Işık Totemin" (Rehber Hayvan/Doğa Sembolü) gelsin.',
+                    placeholder: 'Örn: Kendimi çok savunmasız hissediyorum, kimseye güvenemiyorum.',
+                    buttonText: '✨ Işık Totemimi Çağır',
+                    promptTemplate: `Sen "Nurun Ala Nur" şamanik ışık rehberisin. Kullanıcının durumu: "{{INPUT}}".
+                    İhtiyacı olan Ruhsal Rehber Hayvanı/Sembolü gönder. DİREKT şu formatta yanıt ver:
+                    ✨ Işık Totemin: (Örn: Beyaz Kurt, Gümüş Baykuş vb. ve nedeni)
+                    ✨ Doğanın Nurlu Mesajı: (Totemin getirdiği rehberlik mesajı)
+                    ✨ Totemle Uyumlanma Pratiği: (Enerjiyi entegre etmek için ruhsal eylem)`,
+                    renderStyle: { resultBg: 'from-emerald-50/80 to-white/90', borderColor: 'border-emerald-300', headerBg: 'bg-emerald-100', mantraBg: 'bg-emerald-50' }
                 }
-            };
-
-            const handleAstroAnalysis = async () => {
-                if (!astroInput.trim()) return;
-                if (!apiKey) {
-                    setAstroResult("Sevgili ışık varlığı, lütfen önce sağ üstteki ayarlar (⚙️) ikonundan Evrensel Frekans Anahtarınızı (Google Gemini API Key) girin.");
-                    return;
-                }
-
-                setIsAstroLoading(true);
-                setAstroResult('');
-
-                try {
-                    const prompt = `Sen "Nurun Ala Nur" ruhsal simya merkezinin kozmik ışık astrologusun. Kullanıcı burcunu veya gökyüzüyle ilgili merakını/sıkıntısını paylaştı: "${astroInput}". 
-                    Onun için tamamen kişiselleştirilmiş, çok şefkatli ve 'nur/ışık' temalı bir astrolojik şifa reçetesi hazırla. Lütfen DİREKT olarak şu formatta yanıt ver (Başka giriş metni yazma):
-                    
-                    ✨ Yıldızların Nurlu Mesajı: (Kullanıcının durumunun astrolojik/spiritüel analizi)
-                    ✨ Gezegen Gölgeleri (Arınman Gerekenler): (Hangi gölge yanlardan veya düşüncelerden arınması gerektiği)
-                    ✨ Kozmik Uyumlanma Ritüeli: (Yıldızların frekansına uyumlanması için pratik bir ritüel veya mantra)`;
-                    
-                    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
-                    });
-
-                    const data = await response.json();
-                    if (data.error) throw new Error(data.error.message);
-                    
-                    const text = data.candidates[0].content.parts[0].text;
-                    setAstroResult(text);
-                } catch (error) {
-                    setAstroResult(`Kozmik ağda bir karanlık dalgalanması yaşandı: ${error.message}`);
-                } finally {
-                    setIsAstroLoading(false);
-                }
-            };
-
-            const handleFreqAnalysis = async () => {
-                if (!freqInput.trim()) return;
-                if (!apiKey) {
-                    setFreqResult("Sevgili ışık varlığı, lütfen önce sağ üstteki ayarlar (⚙️) ikonundan Evrensel Frekans Anahtarınızı (Google Gemini API Key) girin.");
-                    return;
-                }
-
-                setIsFreqLoading(true);
-                setFreqResult('');
-
-                try {
-                    const prompt = `Sen "Nurun Ala Nur" ruhsal simya merkezinin ses ve frekans simyacısısın. Kullanıcının şu anki enerjetik veya duygusal tıkanıklığı: "${freqInput}". 
-                    Onun için ruhsal titreşimini yükseltecek sesler, solfej frekansları veya kadim esmalar/mantralar öner. Lütfen DİREKT olarak şu formatta yanıt ver (Başka giriş metni yazma):
-                    
-                    ✨ Işık Frekansı (Sayısal Hz) Önerisi: (Örneğin 432 Hz veya 528 Hz gibi bir frekans ve nedeni)
-                    ✨ Kadim Ses / Şifa Mantrası: (Hangi mantrayı, esmayı veya olumlamayı sesli olarak tekrar etmesi gerektiği)
-                    ✨ Sesle Nurlanma Pratiği: (Sesi kullanarak evde yapabileceği titreşimsel bir arınma pratiği)`;
-                    
-                    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
-                    });
-
-                    const data = await response.json();
-                    if (data.error) throw new Error(data.error.message);
-                    
-                    const text = data.candidates[0].content.parts[0].text;
-                    setFreqResult(text);
-                } catch (error) {
-                    setFreqResult(`Kozmik ağda bir karanlık dalgalanması yaşandı: ${error.message}`);
-                } finally {
-                    setIsFreqLoading(false);
-                }
-            };
-
-            const handleAkashicAnalysis = async () => {
-                if (!akashicInput.trim()) return;
-                if (!apiKey) {
-                    setAkashicResult("Sevgili ışık varlığı, lütfen önce sağ üstteki ayarlar (⚙️) ikonundan Evrensel Frekans Anahtarınızı (Google Gemini API Key) girin.");
-                    return;
-                }
-                setIsAkashicLoading(true);
-                setAkashicResult('');
-                try {
-                    const prompt = `Sen "Nurun Ala Nur" ruhsal simya merkezinin Akaşik Kayıtlar rehberisin. Kullanıcı hayatındaki açıklanamayan bir korkuyu, fobiyi veya belirli bir döneme/kültüre karşı duyduğu derin çekilimi paylaştı: "${akashicInput}". 
-                    Onun için şefkatli bir geçmiş yaşam okuması ve şifa reçetesi hazırla. Lütfen DİREKT olarak şu formatta yanıt ver (Başka giriş metni yazma):
-                    
-                    ✨ Akaşik Yansıma: (Bu hissin olası geçmiş yaşam bağlantısı ve ruhsal hafızasının analizi)
-                    ✨ Ruhun Nurlu Dersi: (Bu yaşamda bu enerjiden öğrenmesi ve şifalandırması gerekenler)
-                    ✨ Akaşik Şifa Mantrası: (Bu karmik yükü serbest bırakması için ona özel bir ışık mantrası)`;
-                    
-                    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
-                    });
-                    const data = await response.json();
-                    if (data.error) throw new Error(data.error.message);
-                    const text = data.candidates[0].content.parts[0].text;
-                    setAkashicResult(text);
-                } catch (error) {
-                    setAkashicResult(`Kozmik ağda bir karanlık dalgalanması yaşandı: ${error.message}`);
-                } finally {
-                    setIsAkashicLoading(false);
-                }
-            };
-
-            const handleGuideAnalysis = async () => {
-                if (!guideInput.trim()) return;
-                if (!apiKey) {
-                    setGuideResult("Sevgili ışık varlığı, lütfen önce sağ üstteki ayarlar (⚙️) ikonundan Evrensel Frekans Anahtarınızı (Google Gemini API Key) girin.");
-                    return;
-                }
-                setIsGuideLoading(true);
-                setGuideResult('');
-                try {
-                    const prompt = `Sen "Nurun Ala Nur" ruhsal simya merkezinin yüksek rehber ruhusun (spiritüel rehber). Kullanıcı bir ikilemini, kararsız kaldığı bir konuyu veya evrenden beklediği bir işareti paylaştı: "${guideInput}". 
-                    Ona kozmik bir yönlendirme yap ve hayatında neye dikkat etmesi gerektiğini anlatan bir 'eşzamanlılık' işareti ver. Lütfen DİREKT olarak şu formatta yanıt ver (Başka giriş metni yazma):
-                    
-                    ✨ Rehber Ruhların Mesajı: (Kullanıcının ikilemine yönelik çok şefkatli, aydınlık ve bilgece bir yönlendirme)
-                    ✨ Kozmik İşaret (Eşzamanlılık): (Önümüzdeki 3 gün boyunca karşısına çıkacak ve doğru yolda olduğunu hissettirecek spesifik bir işaret. Örn: 'mavi bir tüy', '777 sayısı', 'beklenmedik bir kuş sesi' gibi)
-                    ✨ İçsel Uyum Ritüeli: (Bu süreçte merkezinde kalması için kısa bir ruhsal tavsiye)`;
-                    
-                    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
-                    });
-                    const data = await response.json();
-                    if (data.error) throw new Error(data.error.message);
-                    const text = data.candidates[0].content.parts[0].text;
-                    setGuideResult(text);
-                } catch (error) {
-                    setGuideResult(`Kozmik ağda bir karanlık dalgalanması yaşandı: ${error.message}`);
-                } finally {
-                    setIsGuideLoading(false);
-                }
-            };
-
-            const handleIntentAnalysis = async () => {
-                if (!intentInput.trim()) return;
-                if (!apiKey) {
-                    setIntentResult("Sevgili ışık varlığı, lütfen önce sağ üstteki ayarlar (⚙️) ikonundan Evrensel Frekans Anahtarınızı (Google Gemini API Key) girin.");
-                    return;
-                }
-                setIsIntentLoading(true);
-                setIntentResult('');
-                try {
-                    const prompt = `Sen "Nurun Ala Nur" ruhsal simya merkezinin kuantum yaratım ve frekans simyacısısın. Kullanıcı şu dünyevi hedefini veya dileğini paylaştı: "${intentInput}". 
-                    Bu sıradan dileği, kozmik yasalara ve yüksek ışık frekansına uygun bir "Kuantum Işık Niyeti"ne dönüştür. Lütfen DİREKT olarak şu formatta yanıt ver (Başka giriş metni yazma):
-                    
-                    ✨ Kuantum Frekans Analizi: (Bu dileğin altındaki gerçek ruhsal ihtiyacın ve titreşimin analizi)
-                    ✨ Nurlu Yaratım Mantrası: (Dileği şimdiki zaman kipiyle, nur ve ışık kelimeleriyle yeniden yazılmış çok güçlü bir olumlama)
-                    ✨ Işık Tohumu Ritüeli: (Bu niyeti evrenin kuantum alanına ekmek için pratik bir imgeleme/görselleştirme pratiği)`;
-                    
-                    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
-                    });
-                    const data = await response.json();
-                    if (data.error) throw new Error(data.error.message);
-                    const text = data.candidates[0].content.parts[0].text;
-                    setIntentResult(text);
-                } catch (error) {
-                    setIntentResult(`Kozmik ağda bir karanlık dalgalanması yaşandı: ${error.message}`);
-                } finally {
-                    setIsIntentLoading(false);
-                }
-            };
-
-            const handleTotemAnalysis = async () => {
-                if (!totemInput.trim()) return;
-                if (!apiKey) {
-                    setTotemResult("Sevgili ışık varlığı, lütfen önce sağ üstteki ayarlar (⚙️) ikonundan Evrensel Frekans Anahtarınızı (Google Gemini API Key) girin.");
-                    return;
-                }
-                setIsTotemLoading(true);
-                setTotemResult('');
-                try {
-                    const prompt = `Sen "Nurun Ala Nur" ruhsal simya merkezinin şamanik ışık rehberisin. Kullanıcı şu anki enerjisini veya hayatındaki bir durumu paylaştı: "${totemInput}". 
-                    Ona şu an ihtiyacı olan enerjiyi taşıyan bir 'Işık Totemi' (Ruhsal Rehber Hayvan veya Doğa Sembolü) gönder. Lütfen DİREKT olarak şu formatta yanıt ver (Başka giriş metni yazma):
-                    
-                    ✨ Işık Totemin: (Örn: Beyaz Kurt, Gümüş Baykuş, Altın Çınar Ağacı vb. ve neden bu totemin geldiğinin şefkatli açıklaması)
-                    ✨ Doğanın Nurlu Mesajı: (Bu totemin ona getirdiği derin rehberlik mesajı)
-                    ✨ Totemle Uyumlanma Pratiği: (Bu enerjiyi günlük hayatına entegre etmesi için basit bir ruhsal eylem)`;
-                    
-                    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }] })
-                    });
-                    const data = await response.json();
-                    if (data.error) throw new Error(data.error.message);
-                    const text = data.candidates[0].content.parts[0].text;
-                    setTotemResult(text);
-                } catch (error) {
-                    setTotemResult(`Kozmik ağda bir karanlık dalgalanması yaşandı: ${error.message}`);
-                } finally {
-                    setIsTotemLoading(false);
-                }
-            };
+            ];
 
             return (
-                <div className="min-h-screen pb-32 relative">
+                <div className="min-h-screen pb-32 relative overflow-hidden">
                     {/* Glowing Orbs Animation (Background) */}
                     <div className="orb bg-gold-400/30 w-72 h-72 top-20 left-10 animate-float-orb" style={{ animationDelay: '0s' }}></div>
                     <div className="orb bg-mystic-500/20 w-[600px] h-[600px] bottom-40 right-10 animate-float-orb" style={{ animationDelay: '2s', animationDirection: 'reverse' }}></div>
+                    <div className="orb bg-green-500/15 w-96 h-96 top-1/3 right-1/3 animate-float-orb" style={{ animationDelay: '3s' }}></div>
                     <div className="orb bg-gold-300/30 w-96 h-96 top-1/3 left-1/3 animate-float-orb" style={{ animationDelay: '4s' }}></div>
                     <div className="orb bg-earth-500/15 w-80 h-80 top-2/3 left-20 animate-float-orb" style={{ animationDelay: '6s', animationDirection: 'reverse' }}></div>
 
@@ -981,7 +879,7 @@
                             <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-[0_0_60px_rgba(212,175,55,0.4)] border border-gold-300 relative overflow-hidden">
                                 <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-gold-300 via-gold-500 to-gold-300"></div>
                                 <h2 className="text-2xl font-serif text-mystic-900 mb-2">Gizli Işık Kapısı</h2>
-                                <p className="text-xs text-mystic-500 mb-6">Yapay zeka modüllerinin parlaması için Gemini ayarlarını girin.</p>
+                                <p className="text-xs text-mystic-500 mb-6">Tüm (14 Adet) Yapay zeka modüllerinin parlaması için Gemini ayarlarını girin.</p>
                                 <div className="space-y-4">
                                     <div>
                                         <label className="block text-sm font-medium text-mystic-700 mb-1">Evrensel Frekans Anahtarı (API Key)</label>
@@ -1001,7 +899,7 @@
                     {/* Hero Section */}
                     <header className="pt-28 pb-20 px-4 text-center animate-slide-up relative z-10">
                         <div className="relative w-40 h-40 md:w-48 md:h-48 mx-auto mb-10">
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-gold-500 via-mystic-500 to-earth-500 animate-spin-slow opacity-80 blur-md"></div>
+                            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-gold-500 via-mystic-500 to-green-500 animate-spin-slow opacity-80 blur-md"></div>
                             <div className="absolute inset-1 rounded-full bg-cream-100 flex items-center justify-center border-4 border-white shadow-xl overflow-hidden z-10">
                                 <svg className="w-24 h-24 text-mystic-300 mt-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
                             </div>
@@ -1010,30 +908,26 @@
                             </div>
                         </div>
                         
-                        <h1 className="text-6xl md:text-8xl font-serif mb-6 tracking-tight drop-shadow-[0_0_20px_rgba(212,175,55,0.8)] text-transparent bg-clip-text bg-gradient-to-r from-gold-700 via-gold-400 to-gold-700 animate-text-shimmer py-2 leading-tight">
+                        <h1 className="text-5xl md:text-8xl font-serif mb-6 tracking-tight drop-shadow-[0_0_20px_rgba(212,175,55,0.8)] text-transparent bg-clip-text bg-gradient-to-r from-gold-700 via-gold-400 to-gold-700 animate-text-shimmer py-2 leading-tight">
                             Nurun Ala Nur
                         </h1>
                         
                         <div className="flex items-center justify-center gap-4 mb-8">
                             <div className="sacred-line w-16 md:w-32"></div>
-                            <h2 className="text-xl md:text-2xl font-medium text-mystic-700 tracking-widest uppercase">Ruhsal Simya Merkezi</h2>
+                            <h2 className="text-xl md:text-2xl font-medium text-mystic-700 tracking-widest uppercase text-center">Devasa Ruhsal Simya Merkezi</h2>
                             <div className="sacred-line w-16 md:w-32"></div>
                         </div>
-                        <p className="max-w-3xl mx-auto text-mystic-800 text-lg md:text-xl font-light leading-relaxed mb-12 drop-shadow-sm">
-                            Işığın ışıkla buluştuğu, bedenin, zihnin ve ruhun ilksel frekansına, o saf Nura döndüğü merkeze hoş geldiniz... Karanlıklarınızı aydınlatacak bütüncül bir uyanış yolculuğu başlıyor.
+                        <p className="max-w-4xl mx-auto text-mystic-800 text-lg md:text-xl font-light leading-relaxed mb-12 drop-shadow-sm">
+                            Işığın ışıkla buluştuğu, Ayurveda'nın kadim sırlarıyla bedenin, zihnin ve ruhun ilksel frekansına, o saf Nura döndüğü devasa merkeze hoş geldiniz... Karanlıklarınızı aydınlatacak 14 Odalı bütüncül uyanış yolculuğu başlıyor.
                         </p>
-                        <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
-                            <Button variant="primary" className="!px-8 !py-4 text-lg w-full sm:w-auto"><Icons.WhatsApp /> Nur'un Rehberliğine Ulaş</Button>
-                            <Button variant="outline" className="!px-8 !py-4 text-lg w-full sm:w-auto bg-white/70 backdrop-blur-sm"><Icons.Instagram /> Işık Bilgileri (Instagram)</Button>
-                        </div>
                     </header>
 
-                    <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 z-10 relative">
+                    <main className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 space-y-12 z-10 relative">
                         
                         {/* Row 1: Encyclopedia & Aura Wheel */}
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-                            <Card title="Kadim Işık Ansiklopedisi" icon={<Icons.Book />}>
-                                <p className="text-sm text-mystic-600 mb-6 italic">Rehberinizin şifa cephaneliğindeki nurlu ilimlerin derinliklerine inin...</p>
+                            <Card title="Kadim Işık Ansiklopedisi (Ayurveda İlmi)" icon={<Icons.Book />}>
+                                <p className="text-sm text-mystic-600 mb-6 italic">Rehberinizin şifa cephaneliğindeki nurlu ilimlerin, özellikle Ayurveda'nın derinliklerine inin...</p>
                                 <Accordion data={encyclopediaData} />
                             </Card>
 
@@ -1049,7 +943,6 @@
 
                         {/* Row 3: Water Coding & Spiritual Palette */}
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-                            
                             <Card title="Nurun Ala Nur Su Kodlama" icon={<Icons.Droplet />}>
                                 <div className="flex flex-col items-center">
                                     <div className="relative w-40 h-56 mb-10 mt-4 drop-shadow-[0_15px_25px_rgba(0,0,0,0.15)]">
@@ -1127,7 +1020,7 @@
                             </Card>
                         </div>
 
-                        {/* Row 4: Golden Body Map (Full Width, Expanded) */}
+                        {/* Row 4: Golden Body Map */}
                         <Card title="Altın Beden Haritası & Işık Bedeni Taraması" icon={<Icons.Body />} className="col-span-1">
                             <p className="text-center text-mystic-700 mb-10 max-w-2xl mx-auto font-light leading-relaxed">Nurun Ala Nur bütüncül yaklaşımıyla; ışık bedeninizdeki her bir çakranın bağlı olduğu organları, blokaj gölgelerini, EFT noktalarını ve frekans yağlarını incelemek için silüet üzerindeki altın noktalara dokunun.</p>
                             
@@ -1213,157 +1106,29 @@
                             </div>
                         </Card>
 
-                        {/* Row 5: AI-POWERED MODULES (Dream Interpreter & Personal Alchemy) */}
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-                            
-                            <Card title="Simya & Rüya Yorumcusu" icon={<Icons.Moon />} isGemini={true}>
-                                <div className="space-y-5">
-                                    <p className="text-base text-mystic-800 font-serif leading-relaxed text-justify">
-                                        Gündüz aklının reddettiği her gerçek, gece rüyalarında sana geri döner. Bilinçaltının sularından çıkardığın tuhaf imgeleri buraya yaz. Nurlu yapay zeka onu senin için ışığa çıkarsın.
-                                    </p>
-                                    <textarea 
-                                        value={dreamInput}
-                                        onChange={(e) => setDreamInput(e.target.value)}
-                                        placeholder="Örn: Kurumuş bir ağacın köklerinden altın rengi bir ışık seli akıyordu..."
-                                        className="w-full h-32 p-5 rounded-2xl border border-mystic-300 bg-white/80 focus:bg-white focus:border-mystic-500 focus:ring-4 focus:ring-mystic-500/30 transition-all resize-none text-mystic-900 placeholder-mystic-400 shadow-inner outline-none text-lg"
-                                    ></textarea>
-                                    
-                                    <Button onClick={handleDreamAnalysis} variant="gemini" className="w-full !py-4 !text-lg">
-                                        {isDreamLoading ? 'Bilinçaltı Işıldıyor...' : '✨ Sembolleri Nura Kavuştur'}
-                                    </Button>
+                        {/* --- THE GRAND 14 AI MODULES RENDERED DYNAMICALLY --- */}
+                        <div className="my-16">
+                            <div className="flex items-center justify-center gap-4 mb-12">
+                                <div className="sacred-line w-16 md:w-48"></div>
+                                <h2 className="text-3xl md:text-5xl font-serif text-mystic-900 text-center drop-shadow-sm">Yapay Zeka Şifa Odaları</h2>
+                                <div className="sacred-line w-16 md:w-48"></div>
+                            </div>
+                            <p className="text-center text-mystic-700 mb-12 max-w-3xl mx-auto font-light text-lg">Nurun Ala Nur'un bilgelik kütüphanesine hoş geldin. Alttaki 14 farklı kozmik simya odasından ihtiyacın olanı seç ve derdini fısılda. Işık sana cevabını anında iletecektir.</p>
 
-                                    {isDreamLoading && <div className="py-6"><Icons.Loader /></div>}
-
-                                    {dreamResult && !isDreamLoading && (
-                                        <div className="mt-4 p-6 bg-white/90 rounded-2xl border border-mystic-200 shadow-lg relative animate-slide-up">
-                                            <h5 className="font-serif text-xl text-mystic-900 mb-4 border-b border-mystic-100 pb-2">Nurlu Rehberin Analizi:</h5>
-                                            <div className="prose-custom text-mystic-800 text-sm md:text-base text-justify">
-                                                {dreamResult.split('\n').filter(p => p.trim() !== '').map((para, idx) => {
-                                                    const cleanText = para.replace(/\*\*/g, '').replace(/\*/g, '');
-                                                    return <p key={idx}>{cleanText}</p>;
-                                                })}
-                                            </div>
-                                        </div>
-                                    )}
-                                </div>
-                            </Card>
-
-                            <Card title="Kişisel Nur Simyası (Kâhin)" icon={<Icons.CrystalBall />} isGemini={true}>
-                                <div className="space-y-5">
-                                    <p className="text-base text-mystic-800 font-serif leading-relaxed text-justify">
-                                        Şu an kalbini, zihnini ne ağırlaştırıyor? Kendini nasıl hissediyorsun? Derdini ve duygusal karanlığını kozmik rehbere fısılda. Sana özel, anlık bir "Aydınlanma Reçetesi" hazırlansın.
-                                    </p>
-                                    <textarea 
-                                        value={alchemyInput}
-                                        onChange={(e) => setAlchemyInput(e.target.value)}
-                                        placeholder="Örn: Kendimi son günlerde çok değersiz ve yorgun hissediyorum, sanki ışığım sönmüş gibi..."
-                                        className="w-full h-32 p-5 rounded-2xl border border-mystic-300 bg-white/80 focus:bg-white focus:border-mystic-500 focus:ring-4 focus:ring-mystic-500/30 transition-all resize-none text-mystic-900 placeholder-mystic-400 shadow-inner outline-none text-lg"
-                                    ></textarea>
-                                    
-                                    <Button onClick={handleAlchemyAnalysis} variant="gemini" className="w-full !py-4 !text-lg">
-                                        {isAlchemyLoading ? 'Reçeteniz Hazırlanıyor...' : '✨ Kişisel Ruhsal Reçetemi Oluştur'}
-                                    </Button>
-
-                                    {isAlchemyLoading && <div className="py-6"><Icons.Loader /></div>}
-
-                                    {alchemyResult && !isAlchemyLoading && (
-                                        <div className="mt-4 p-6 bg-gradient-to-br from-gold-50/80 to-white/90 rounded-2xl border border-gold-300 shadow-lg relative animate-slide-up">
-                                            <h5 className="font-serif text-xl text-mystic-900 mb-4 border-b border-gold-200 pb-2">Senin İçin Özel Işık Reçetesi:</h5>
-                                            <div className="prose-custom text-mystic-900 text-sm md:text-base text-justify">
-                                                {alchemyResult.split('\n').filter(p => p.trim() !== '').map((para, idx) => {
-                                                    const cleanText = para.replace(/\*\*/g, '').replace(/\*/g, '');
-                                                    if(cleanText.includes("✨ Işık Teşhisi")) return <p key={idx} className="font-medium text-mystic-700">{cleanText}</p>;
-                                                    if(cleanText.includes("✨ Sana Özel Nur Mantrası")) return <div key={idx} className="bg-mystic-100 p-4 rounded-xl italic font-serif my-4 border border-mystic-200">{cleanText}</div>;
-                                                    if(cleanText.includes("✨ Simyasal Işık Ritüeli")) return <p key={idx} className="bg-gold-100/50 p-4 rounded-xl border border-gold-200">{cleanText}</p>;
-                                                    return <p key={idx}>{cleanText}</p>;
-                                                })}
-                                            </div>
-                                        </div>
-                                    )}
-                                </div>
-                            </Card>
-
+                            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+                                {aiModulesConfig.map(config => (
+                                    <AIModule 
+                                        key={config.id}
+                                        {...config}
+                                        apiKey={apiKey}
+                                        model={model}
+                                    />
+                                ))}
+                            </div>
                         </div>
 
-                        {/* Row 9: NEW AI MODULES (Quantum Manifestation & Spirit Totem) */}
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-                            
-                            {/* Quantum Manifestation Module */}
-                            <Card title="Kuantum Işık Niyeti (Yaratım Simyası)" icon={<Icons.Wand />} isGemini={true}>
-                                <div className="space-y-5">
-                                    <p className="text-base text-mystic-800 font-serif leading-relaxed text-justify">
-                                        Gerçekleştirmek istediğin sıradan bir hedefin veya dünyevi bir dileğin mi var? Bunu evrenin diline, nurlu bir titreşime çevirmek için kozmik simyacıya fısılda; yaratım frekansın yükselsin.
-                                    </p>
-                                    <textarea 
-                                        value={intentInput}
-                                        onChange={(e) => setIntentInput(e.target.value)}
-                                        placeholder="Örn: Yeni bir iş bulmak ve maddi olarak rahatlamak istiyorum, borçlarımdan kurtulmak istiyorum..."
-                                        className="w-full h-32 p-5 rounded-2xl border border-mystic-300 bg-white/80 focus:bg-white focus:border-mystic-500 focus:ring-4 focus:ring-mystic-500/30 transition-all resize-none text-mystic-900 placeholder-mystic-400 shadow-inner outline-none text-lg"
-                                    ></textarea>
-                                    
-                                    <Button onClick={handleIntentAnalysis} variant="gemini" className="w-full !py-4 !text-lg">
-                                        {isIntentLoading ? 'Kuantum Alanı Düzenleniyor...' : '✨ Niyetimi Nura Dönüştür'}
-                                    </Button>
-
-                                    {isIntentLoading && <div className="py-6"><Icons.Loader /></div>}
-
-                                    {intentResult && !isIntentLoading && (
-                                        <div className="mt-4 p-6 bg-gradient-to-br from-gold-50/80 to-white/90 rounded-2xl border border-gold-300 shadow-lg relative animate-slide-up">
-                                            <h5 className="font-serif text-xl text-mystic-900 mb-4 border-b border-gold-200 pb-2">Kuantum Yaratım Kodların:</h5>
-                                            <div className="prose-custom text-mystic-900 text-sm md:text-base text-justify">
-                                                {intentResult.split('\n').filter(p => p.trim() !== '').map((para, idx) => {
-                                                    const cleanText = para.replace(/\*\*/g, '').replace(/\*/g, '');
-                                                    if(cleanText.includes("✨ Kuantum Frekans Analizi")) return <p key={idx} className="font-medium text-mystic-800">{cleanText}</p>;
-                                                    if(cleanText.includes("✨ Nurlu Yaratım Mantrası")) return <div key={idx} className="bg-gold-50 p-4 rounded-xl italic font-serif my-4 border border-gold-200">{cleanText}</div>;
-                                                    if(cleanText.includes("✨ Işık Tohumu Ritüeli")) return <p key={idx} className="bg-mystic-100/50 p-4 rounded-xl border border-mystic-200 mt-2">{cleanText}</p>;
-                                                    return <p key={idx}>{cleanText}</p>;
-                                                })}
-                                            </div>
-                                        </div>
-                                    )}
-                                </div>
-                            </Card>
-
-                            {/* Spirit Totem Module */}
-                            <Card title="Işık Totemi ve Doğa Rehberliği" icon={<Icons.Tree />} isGemini={true}>
-                                <div className="space-y-5">
-                                    <p className="text-base text-mystic-800 font-serif leading-relaxed text-justify">
-                                        Kendini yalnız veya güçsüz mü hissediyorsun? Şu anki ruhsal durumunu fısılda; doğa ana ve evrensel zeka, sana omuz vermesi için enerjetik bir "Işık Totemi" (Ruhsal Rehber Hayvan) göndersin.
-                                    </p>
-                                    <textarea 
-                                        value={totemInput}
-                                        onChange={(e) => setTotemInput(e.target.value)}
-                                        placeholder="Örn: Bu aralar çok savunmasız hissediyorum, kimseye güvenemiyorum ve sınırlarımı çizemiyorum..."
-                                        className="w-full h-32 p-5 rounded-2xl border border-mystic-300 bg-white/80 focus:bg-white focus:border-mystic-500 focus:ring-4 focus:ring-mystic-500/30 transition-all resize-none text-mystic-900 placeholder-mystic-400 shadow-inner outline-none text-lg"
-                                    ></textarea>
-                                    
-                                    <Button onClick={handleTotemAnalysis} variant="gemini" className="w-full !py-4 !text-lg">
-                                        {isTotemLoading ? 'Doğanın Nuru Dinleniyor...' : '✨ Işık Totemimi Çağır'}
-                                    </Button>
-
-                                    {isTotemLoading && <div className="py-6"><Icons.Loader /></div>}
-
-                                    {totemResult && !isTotemLoading && (
-                                        <div className="mt-4 p-6 bg-gradient-to-br from-earth-50/80 to-white/90 rounded-2xl border border-earth-200 shadow-lg relative animate-slide-up">
-                                            <h5 className="font-serif text-xl text-mystic-900 mb-4 border-b border-earth-200 pb-2">Şamanik Işık Rehberin:</h5>
-                                            <div className="prose-custom text-mystic-900 text-sm md:text-base text-justify">
-                                                {totemResult.split('\n').filter(p => p.trim() !== '').map((para, idx) => {
-                                                    const cleanText = para.replace(/\*\*/g, '').replace(/\*/g, '');
-                                                    if(cleanText.includes("✨ Işık Totemin")) return <p key={idx} className="bg-earth-100/50 p-4 rounded-xl border border-earth-200 mt-2 font-medium">{cleanText}</p>;
-                                                    if(cleanText.includes("✨ Doğanın Nurlu Mesajı")) return <p key={idx} className="bg-mystic-50 p-4 rounded-xl border border-mystic-100">{cleanText}</p>;
-                                                    if(cleanText.includes("✨ Totemle Uyumlanma Pratiği")) return <div key={idx} className="bg-gold-50 p-4 rounded-xl italic font-serif my-4 border border-gold-200">{cleanText}</div>;
-                                                    return <p key={idx}>{cleanText}</p>;
-                                                })}
-                                            </div>
-                                        </div>
-                                    )}
-                                </div>
-                            </Card>
-
-                        </div>
-
-                        {/* Row 10: Full Width Appointment Panel */}
-                        <Card title="Online Nurlanma & Randevu Paneli" icon={<Icons.Calendar />} className="col-span-1">
+                        {/* Calendar Widget Section */}
+                        <Card title="Online Nurlanma & Randevu Paneli" icon={<Icons.Calendar />} className="col-span-1 mt-12">
                             <div className="max-w-3xl mx-auto py-4">
                                 <p className="text-center text-mystic-700 mb-10 font-light leading-relaxed">
                                     Aydınlanma ve şifa yolculuğunuzda size rehberlik etmemiz için kozmik takvimden kendinize bir ışık saati ayırın. Seçtiğiniz tarih evrenin büyük tasarımında zaten sizin için ayrılmıştı.
