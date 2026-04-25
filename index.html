@@ -68,9 +68,14 @@
     <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
     <!-- Custom CSS -->
-    <style>
+	<style>
+        @media print {
+            .print-hide { display: none !important; }
+            .glass-panel { box-shadow: none !important; border: 1px solid #ccc !important; background: white !important; }
+        }
         body {
             background-color: #fdfbf7;
             color: #2d1445;
@@ -247,6 +252,7 @@
         }
 
         // --- SVGs & Icons ---
+        // --- SVGs & Icons ---
         const Icons = {
             Settings: () => <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>,
             Instagram: () => <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>,
@@ -276,57 +282,62 @@
             Microphone: () => <svg className="w-6 h-6 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z"></path></svg>,
             Camera: () => <svg className="w-6 h-6 text-fuchsia-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z"></path></svg>,
             Play: () => <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fillRule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clipRule="evenodd"></path></svg>,
-            Eye: () => <svg className="w-6 h-6 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.964-7.178z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+            Eye: () => <svg className="w-6 h-6 text-teal-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.964-7.178z"></path><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>,
+            Trash: () => <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0"></path></svg>,
+            XMark: () => <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>,
+            Download: () => <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"></path></svg>,
+            Copy: () => <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M15.75 17.25v3.375c0 .621-.504 1.125-1.125 1.125h-9.75a1.125 1.125 0 01-1.125-1.125V7.875c0-.621.504-1.125 1.125-1.125H6.75a9.06 9.06 0 011.5.124m7.5 10.376h3.375c.621 0 1.125-.504 1.125-1.125V11.25c0-4.46-3.243-8.161-7.5-8.876a9.06 9.06 0 00-1.5-.124H9.375c-.621 0-1.125.504-1.125 1.125v3.5m7.5 10.375H9.375a1.125 1.125 0 01-1.125-1.125v-9.25m12 6.625v-1.875a3.375 3.375 0 00-3.375-3.375h-1.5a1.125 1.125 0 01-1.125-1.125v-1.5a3.375 3.375 0 00-3.375-3.375H9.75"></path></svg>,
+            Check: () => <svg className="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4.5 12.75l6 6 9-13.5"></path></svg>
         };
 
-        // --- DEVASA VERİ SETLERİ (JSON) ---
+     // --- DEVASA VERİ SETLERİ (JSON) ---
         
         const encyclopediaData = [
             {
                 id: 'ayurveda',
-                title: "Ayurveda: Türkiye'de Gizli Kalan Hücresel Aydınlanma Teknolojisi",
+                title: "🌿 Ayurveda: Gizli Kalan Hücresel Aydınlanma",
                 content: [
-                    "Sıradan bir bitki biliminin çok ötesinde, 5000 yıllık bir ruhsal sır olan Ayurveda, Türkiye'de maalesef çok az bilinen bir aydınlanma anahtarıdır. Ayurveda (Ayur=Yaşam, Veda=Bilgi), bedeninizi oluşturan elementlerin evrensel frekansla nasıl dans ettiğinin matematiğidir.",
-                    "Nurun Ala Nur vizyonunda Ayurveda bir 'diyet' değil, hücresel zekanızın uyanışıdır. Vücudunuzdaki üç ana nur merkezi (Dosha) şunlardır:",
+                    <span key="1">Sıradan bir bitki biliminin çok ötesinde, <strong className="text-gold-600">5000 yıllık bir ruhsal sır</strong> olan Ayurveda, bedeninizi oluşturan elementlerin evrensel frekansla nasıl dans ettiğinin matematiğidir.</span>,
+                    <span key="2">Nurun Ala Nur vizyonunda Ayurveda bir 'diyet' değil, <strong className="text-mystic-700">hücresel zekanızın uyanışıdır</strong>. Vücudunuzdaki üç ana nur merkezi (Dosha) şunlardır:</span>,
                     [
-                        "VATA (Prana/Hava): Evrenin rüzgarı. Zihninizdeki ilhamın ve sinir ağınızdaki ışık hızının merkezidir. Vata bozulduğunda kişi kurumuş bir yaprak gibi kaygı, uykusuzluk ve korku rüzgarlarında savrulur.",
-                        "PITTA (Agni/Ateş): Evrenin güneşi ve dönüşüm nuru. Yediğiniz lokmayı kana, okuduğunuz bilgiyi bilgeliğe dönüştüren simya ateşidir. Pitta kontrolden çıktığında hücreler iltihaplanır, ruh öfke ve eleştiri ile yanar.",
-                        "KAPHA (Ojas/Toprak ve Su): Evrenin şefkatli kucağı. Bedenin dayanıklılığı, sevginin sıvı halidir (Ojas). Kapha gölgelendiğinde kişi geçmişe tutunur, atalet başlar, beden yağ ve ödemle karanlık bir zırh örer."
+                        <span key="3"><strong className="text-sky-500 font-bold tracking-wider text-lg">💨 VATA (Prana/Hava):</strong> Evrenin rüzgarı. Zihninizdeki ilhamın ve sinir ağınızdaki ışık hızının merkezidir. Vata bozulduğunda kişi <strong className="text-mystic-600 italic">kurumuş bir yaprak gibi</strong> kaygı ve korku rüzgarlarında savrulur.</span>,
+                        <span key="4"><strong className="text-red-500 font-bold tracking-wider text-lg">🔥 PITTA (Agni/Ateş):</strong> Evrenin güneşi ve dönüşüm nuru. Yediğiniz lokmayı kana, okuduğunuz bilgiyi bilgeliğe dönüştüren <strong className="text-gold-600">simya ateşidir</strong>. Pitta kontrolden çıktığında ruh öfke ile yanar.</span>,
+                        <span key="5"><strong className="text-emerald-500 font-bold tracking-wider text-lg">💧 KAPHA (Ojas/Toprak ve Su):</strong> Evrenin şefkatli kucağı. Bedenin dayanıklılığı, sevginin sıvı halidir. Kapha gölgelendiğinde beden atalet ve ağırlıkla karanlık bir zırh örer.</span>
                     ],
-                    "Bu kadim sistemde 'Ama' (Hücresel Karanlık Toksin), sindirilememiş duyguların ve gıdaların bedendeki tortusudur. Nurun Ala Nur merkezinde, size özel hazırlanan baharat simyaları (Ghee, Zerdeçal, Ashwagandha kombinasyonları) ve mizaç analizi ile içinizdeki Agni'yi (Şifa Ateşini) yakar, Ama'yı eritip bedeninizi saf bir ışık prizmasına dönüştürürüz."
+                    <span key="6">Bu kadim sistemde <strong className="text-mystic-900 font-semibold">'Ama' (Hücresel Karanlık Toksin)</strong>, sindirilememiş duyguların tortusudur. Size özel baharat simyalarıyla içinizdeki <strong className="text-gold-600">Agni'yi (Şifa Ateşini)</strong> yakar, bedeninizi saf bir ışık prizmasına dönüştürürüz.</span>
                 ]
             },
             {
                 id: 'bioenerji',
-                title: "Nurun Ala Nur Biyoenerji ve Kozmik Frekanslar",
+                title: "✨ Nurun Ala Nur Biyoenerji ve Kozmik Frekanslar",
                 content: [
-                    "Biyoenerji, evrenin dokusunu oluşturan ve her canlının içinden akan görünmez ışık, ilksel yaşam gücüdür. Bedenimiz, aslında bu devasa nur okyanusunun sadece yoğunlaşmış, görünür bir formudur.",
-                    "Hastalıklar, ağrılar veya ruhsal tıkanıklıklar fiziksel bedende belirmeden çok önce, enerji bedenimizde (aurada) bir nur eksikliği, frekans düşüklüğü veya blokaj olarak ortaya çıkar.",
-                    "Nurun Ala Nur felsefesiyle tasarlanan Biyoenerji seanslarında yapılan şey:",
+                    <span key="1">Biyoenerji, evrenin dokusunu oluşturan ve her canlının içinden akan <strong className="text-gold-600">görünmez ışık, ilksel yaşam gücüdür</strong>. Bedenimiz, bu devasa nur okyanusunun yoğunlaşmış formudur.</span>,
+                    <span key="2">Hastalıklar fiziksel bedende belirmeden çok önce, enerji bedenimizde (aurada) bir <strong className="text-mystic-700">nur eksikliği veya blokaj</strong> olarak ortaya çıkar.</span>,
+                    <span key="3">Biyoenerji seanslarında yapılan şey:</span>,
                     [
-                        "Aura katmanlarındaki (ışık bedenindeki) yırtıkların ve enerji kaçaklarının tespit edilmesi.",
-                        "Kozmik şifa frekanslarına kanallık edilerek düşük titreşimli blokajların ilksel nura dönüştürülmesi.",
-                        "Çakraların (ışık merkezlerinin) dönüş hızlarının ve yönlerinin, yaratılış anındaki o kusursuz, pürüzsüz rotasyonuna geri döndürülmesi."
+                        <span key="4">Aura katmanlarındaki yırtıkların tespit edilmesi.</span>,
+                        <span key="5">Kozmik şifa frekanslarına kanallık edilerek <strong className="text-gold-600">karanlığın nura dönüştürülmesi</strong>.</span>,
+                        <span key="6">Çakraların yaratılış anındaki o kusursuz, pürüzsüz rotasyonuna geri döndürülmesi.</span>
                     ],
-                    "Unutmayın, ışık yalan söylemez. Kelimelerle sakladığınız her hüznü, auranız evrene fısıldar. Biyoenerji, bu fısıltıyı duyup onu evrensel nurun şefkatli bir şarkısına dönüştürme sanatıdır."
+                    <span key="7"><strong className="text-mystic-900 font-serif italic">"Işık yalan söylemez. Kelimelerle sakladığınız her hüznü, auranız evrene fısıldar."</strong></span>
                 ]
             },
             {
                 id: 'eft',
-                title: "EFT: Duygusal Yüklerden Nura Özgürleşme",
+                title: "🕊️ EFT: Duygusal Yüklerden Nura Özgürleşme",
                 content: [
-                    "EFT (Emotional Freedom Techniques), iğnesiz akupunktur olarak bilinen, zihin ve beden arasındaki ışık köprülerini onaran muazzam bir tekniktir. Bilinçaltımız, yaşadığımız travmaları hücresel hafızamıza bir 'kısa devre' olarak kaydeder.",
-                    "Açıklanamayan bir fobi, bir öfke krizinde aslında bedeninizin enerji sistemindeki o eski karanlık kayıt tetikleniyordur. EFT, parmak uçlarıyla bedendeki meridyen (ışık yolları) bitiş noktalarına vurarak beynin korku merkezine 'Şu an güvendesin' sinyali gönderir.",
-                    "Nurun Ala Nur vizyonunda EFT sadece bir vuruş tekniği değildir; 'Ben yetersizim' gibi karanlık inançların kökünden sökülüp, yerine yüksek frekanslı kodların ekildiği bir 'Ruhsal Aydınlanma' cerrahisidir."
+                    <span key="1"><strong className="text-mystic-700">EFT (Duygusal Özgürleşme Teknikleri)</strong>, zihin ve beden arasındaki ışık köprülerini onaran muazzam bir iğnesiz akupunktur tekniğidir.</span>,
+                    <span key="2">Açıklanamayan bir fobi aslında bedeninizin enerji sistemindeki o eski <strong className="text-red-500">karanlık kaydın</strong> tetiklenmesidir. EFT, meridyen bitiş noktalarına vurarak beyninize <strong className="text-gold-600 font-bold">'Şu an güvendesin'</strong> sinyali gönderir.</span>,
+                    <span key="3">Bu sadece bir vuruş tekniği değildir; karanlık inançların kökünden sökülüp, yerine yüksek frekanslı kodların ekildiği bir <strong className="text-mystic-900 font-semibold">Ruhsal Aydınlanma Cerrahisidir</strong>.</span>
                 ]
             },
             {
                 id: 'sembolizm',
-                title: "Bilinçaltı Sembolizmi: Rüyaların Işık Dili",
+                title: "🔮 Bilinçaltı Sembolizmi: Rüyaların Işık Dili",
                 content: [
-                    "Bilinçdışının dili kelimeler değil, semboller ve kadim arketiplerdir. Bilinçli zihninizin reddettiği, görmezden geldiği her gerçek, gece rüyalarınızda veya vizyonlarınızda size mesaj yollamak için bir sembol kılığına girer.",
-                    "Karanlık sulardan yükselen bir yaratık, kolektif bilinçdışından gelen devasa bir potansiyeli veya yüzleşilmemiş gölgenizi; çökmüş bir ev ise yenilenmek için yıkılması gereken çürümüş bir inanç sisteminizi temsil edebilir.",
-                    "Ruhsal Simya seanslarında rüya analizi ve sanat terapisi birleşir. Sizin anlattığınız bir rüya, karanlığın aydınlanmaya ve nihayetinde saf nura (Rubedo) dönüşmesi için rehberlik eder."
+                    <span key="1">Bilinçdışının dili kelimeler değil, <strong className="text-mystic-700">semboller ve kadim arketiplerdir</strong>.</span>,
+                    <span key="2">Karanlık sulardan yükselen bir yaratık, <strong className="text-gold-600">yüzleşilmemiş gölgenizi</strong>; çökmüş bir ev ise yenilenmek için yıkılması gereken inanç sisteminizi temsil edebilir.</span>,
+                    <span key="3">Ruhsal Simya seanslarında rüya analizi ile karanlığın aydınlanmaya ve nihayetinde <strong className="text-gold-600 font-bold">saf nura (Rubedo)</strong> dönüşmesi için rehberlik edilir.</span>
                 ]
             }
         ];
@@ -392,6 +403,7 @@
 
         const Accordion = ({ data }) => {
             const [openIndex, setOpenIndex] = useState(0);
+
             return (
                 <div className="space-y-4">
                     {data.map((item, index) => (
@@ -408,9 +420,9 @@
                                     <div className="prose-custom text-mystic-800 text-sm md:text-base border-t border-gold-200/50 pt-4">
                                         {item.content.map((block, i) => {
                                             if (Array.isArray(block)) {
-                                                return <ul key={i}>{block.map((li, j) => <li key={j}><span className="text-gold-500 mr-2">✦</span>{li}</li>)}</ul>;
+                                                return <ul key={i}>{block.map((li, j) => <li key={j} className="leading-relaxed"><span className="text-gold-500 mr-2">✦</span>{li}</li>)}</ul>;
                                             }
-                                            return <p key={i}>{block}</p>;
+                                            return <p key={i} className="leading-relaxed text-justify">{block}</p>;
                                         })}
                                     </div>
                                 </div>
@@ -620,6 +632,47 @@
                 </div>
             );
         };
+// --- PAYLAŞIM PANELI (PDF, WHATSAPP, KOPYALA) ---
+        const SharePanel = ({ text, title }) => {
+            const [copied, setCopied] = useState(false);
+
+            const handleWhatsApp = () => {
+                const msg = `✨ *${title}* ✨\n\n${text}\n\nNurun Ala Nur - Ruhsal Simya Merkezi`;
+                window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent(msg)}`, '_blank');
+            };
+
+            const handleCopy = () => {
+                navigator.clipboard.writeText(text);
+                setCopied(true);
+                setTimeout(() => setCopied(false), 2000);
+            };
+
+            const handlePDF = (e) => {
+                const element = e.target.closest('.result-container');
+                const opt = {
+                    margin:       10,
+                    filename:     `${title.replace(/\s+/g, '_')}_Recete.pdf`,
+                    image:        { type: 'jpeg', quality: 0.98 },
+                    html2canvas:  { scale: 2, useCORS: true },
+                    jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+                };
+                html2pdf().set(opt).from(element).save();
+            };
+
+            return (
+                <div className="flex flex-wrap items-center gap-3 mt-6 pt-4 border-t border-mystic-200/50 print-hide">
+                    <button onClick={handleWhatsApp} className="flex items-center justify-center flex-1 sm:flex-none gap-2 px-4 py-2 bg-[#25D366] text-white rounded-xl text-sm font-medium hover:bg-[#128C7E] transition-all shadow-sm">
+                        <Icons.WhatsApp /> Danışana Gönder
+                    </button>
+                    <button onClick={handlePDF} className="flex items-center justify-center flex-1 sm:flex-none gap-2 px-4 py-2 bg-red-500 text-white rounded-xl text-sm font-medium hover:bg-red-600 transition-all shadow-sm">
+                        <Icons.Download /> PDF İndir
+                    </button>
+                    <button onClick={handleCopy} className="flex items-center justify-center w-full sm:w-auto gap-2 px-4 py-2 bg-mystic-700 text-white rounded-xl text-sm font-medium hover:bg-mystic-800 transition-all shadow-sm">
+                        {copied ? <Icons.Check /> : <Icons.Copy />} {copied ? 'Kopyalandı!' : 'Kopyala'}
+                    </button>
+                </div>
+            );
+        };
 
         // --- IMAGE GENERATION MODULE (AURA PHOTOGRAPHER) ---
         const AuraImageModule = ({ apiKey }) => {
@@ -663,38 +716,48 @@
                 }
             };
 
+            const clearImage = () => {
+                setImageUrl(null);
+                setInput('');
+            };
+
             return (
                 <Card title="Kozmik Aura Fotoğrafçısı (Görsel Simya)" icon={<Icons.Camera />} isGemini={true} className="col-span-1 md:col-span-2 xl:col-span-3 mb-8 border-gold-400">
                     <div className="flex flex-col lg:flex-row gap-8 items-center w-full">
-                        <div className="w-full lg:w-1/2 space-y-5">
-                            <p className="text-base text-mystic-800 font-serif leading-relaxed text-justify">
+                        <div className="w-full lg:w-1/2 space-y-4 sm:space-y-5">
+                            <p className="text-sm sm:text-base text-mystic-800 font-serif leading-relaxed text-justify">
                                 DÜNYADA BİR İLK! <strong>Imagen-4 Görsel Zekası</strong> ile şu anki ruh halinizi evrenin tuvaline yansıtın. Kelimelerle ifade ettiğiniz duygu durumunuz, Kutsal Geometri ve kozmik ışıklarla dijital bir <strong>Aura Portresine</strong> dönüştürülecek.
                             </p>
                             <textarea 
                                 value={input}
                                 onChange={(e) => setInput(e.target.value)}
                                 placeholder="Şu an kendini nasıl hissediyorsun? Hangi renkler ve duygular seni sarıyor?"
-                                className="w-full h-32 p-5 rounded-2xl border border-mystic-300 bg-white/80 focus:bg-white focus:border-mystic-500 focus:ring-4 focus:ring-mystic-500/30 transition-all resize-none text-mystic-900 placeholder-mystic-400 shadow-inner outline-none text-lg"
+                                className="w-full h-24 sm:h-32 p-4 sm:p-5 rounded-2xl border border-mystic-300 bg-white/80 focus:bg-white focus:border-mystic-500 focus:ring-4 focus:ring-mystic-500/30 transition-all resize-none text-mystic-900 placeholder-mystic-400 shadow-inner outline-none text-base sm:text-lg"
                             ></textarea>
-                            <Button onClick={generateAura} variant="gold" className="w-full !py-4 !text-lg shadow-[0_0_20px_rgba(212,175,55,0.6)]" disabled={isLoading}>
+                            <Button onClick={generateAura} variant="gold" className="w-full !py-3 sm:!py-4 text-base sm:text-lg shadow-[0_0_20px_rgba(212,175,55,0.6)]" disabled={isLoading}>
                                 {isLoading ? 'Kozmik Renkler İşleniyor...' : '✨ Aura Portremi Çek'}
                             </Button>
                         </div>
                         
-                        <div className="w-full lg:w-1/2 flex items-center justify-center min-h-[300px] bg-mystic-900/5 rounded-3xl border-2 border-dashed border-mystic-300 relative overflow-hidden">
+                        <div className="w-full lg:w-1/2 flex items-center justify-center min-h-[250px] sm:min-h-[300px] bg-mystic-900/5 rounded-3xl border-2 border-dashed border-mystic-300 relative overflow-hidden group">
                             {isLoading && (
                                 <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/50 backdrop-blur-sm z-10">
                                     <Icons.Loader />
-                                    <p className="mt-4 text-gold-700 font-medium animate-pulse">Işık hüzmeleri birleşiyor...</p>
+                                    <p className="mt-4 text-gold-700 font-medium animate-pulse text-sm sm:text-base">Işık hüzmeleri birleşiyor...</p>
                                 </div>
                             )}
                             
                             {imageUrl ? (
-                                <img src={imageUrl} alt="Kozmik Aura Portresi" className="w-full h-auto object-cover rounded-3xl shadow-[0_0_40px_rgba(212,175,55,0.3)] animate-fade-in" />
+                                <>
+                                    <img src={imageUrl} alt="Kozmik Aura Portresi" className="w-full h-auto object-cover rounded-3xl shadow-[0_0_40px_rgba(212,175,55,0.3)] animate-fade-in" />
+                                    <button onClick={clearImage} className="absolute top-2 right-2 sm:top-4 sm:right-4 bg-red-500/90 text-white p-2 sm:p-3 rounded-full hover:bg-red-600 transition-all shadow-lg backdrop-blur-sm z-20 hover:scale-110">
+                                        <Icons.Trash />
+                                    </button>
+                                </>
                             ) : (
-                                <div className="text-center p-8 opacity-60">
-                                    <Icons.Camera className="w-16 h-16 mx-auto mb-4 text-mystic-500" />
-                                    <p className="font-serif text-mystic-800">Ruhunuzun fotoğrafı burada belirecek.</p>
+                                <div className="text-center p-6 sm:p-8 opacity-60">
+                                    <Icons.Camera className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 text-mystic-500" />
+                                    <p className="font-serif text-mystic-800 text-sm sm:text-base">Ruhunuzun fotoğrafı burada belirecek.</p>
                                 </div>
                             )}
                         </div>
@@ -724,6 +787,13 @@
                 }
             };
 
+            const clearImage = () => {
+                setImagePreview(null);
+                setImageFile(null);
+                setResult('');
+                setAudioUrl(null);
+            };
+
             const handleAnalysis = async () => {
                 if (!imagePreview) {
                     alert("Lütfen önce yüzünüzün veya gözlerinizin net bir fotoğrafını yükleyin.");
@@ -739,7 +809,6 @@
                 setAudioUrl(null);
 
                 try {
-                    // Extract base64 data and mimetype
                     const mimeType = imagePreview.match(/data:(.*?);base64,/)[1];
                     const base64Data = imagePreview.split(',')[1];
 
@@ -807,10 +876,9 @@
                     if(!inlineData) throw new Error("Ses verisi alınamadı.");
 
                     const base64Audio = inlineData.data;
-                    const audioMimeType = inlineData.mimeType || "audio/L16; rate=24000";
                     let rate = 24000;
-                    if(audioMimeType.includes('rate=')) {
-                        rate = parseInt(audioMimeType.split('rate=')[1]);
+                    if(inlineData.mimeType && inlineData.mimeType.includes('rate=')) {
+                        rate = parseInt(inlineData.mimeType.split('rate=')[1]);
                     }
 
                     const blob = createWavBlob(base64Audio, rate);
@@ -825,75 +893,86 @@
 
             const renderResultContent = (text) => {
                 return text.split('\n').filter(p => p.trim() !== '').map((para, idx) => {
-                    const cleanText = para.replace(/\*\*/g, '').replace(/\*/g, '');
-                    if (cleanText.includes("✨") || cleanText.match(/^[A-ZĞÜŞİÖÇ][a-zğüşiöç\s]+:/)) {
-                        return <p key={idx} className="font-semibold text-mystic-900 mt-4 mb-2 p-3 rounded-lg border bg-teal-100 border-teal-300">{cleanText}</p>;
+                    const parts = para.split(/(\*\*.*?\*\*)/g);
+                    const formattedPara = parts.map((part, i) => {
+                        if (part.startsWith('**') && part.endsWith('**')) {
+                            return <strong key={i} className="text-gold-700 font-bold tracking-wide">{part.slice(2, -2)}</strong>;
+                        }
+                        return part.replace(/\*/g, '');
+                    });
+
+                    if (para.includes("✨") || para.match(/^[A-ZĞÜŞİÖÇ][a-zğüşiöç\s]+:/)) {
+                        return <p key={idx} className="font-semibold text-mystic-900 mt-4 mb-2 p-3 rounded-lg border bg-teal-100 border-teal-300 text-sm sm:text-base shadow-sm">{formattedPara}</p>;
                     }
-                    if (cleanText.startsWith('"') || cleanText.includes("Mantra:") || cleanText.includes("Pratiği:")) {
-                        return <div key={idx} className="p-4 rounded-xl italic font-serif my-4 border bg-teal-50 border-teal-300">{cleanText}</div>;
+                    if (para.startsWith('"') || para.includes("Mantra:") || para.includes("Pratiği:")) {
+                        return <div key={idx} className="p-3 sm:p-4 rounded-xl italic font-serif my-4 border bg-teal-50 border-teal-300 text-sm sm:text-base text-gold-900 shadow-inner">{formattedPara}</div>;
                     }
-                    return <p key={idx} className="mb-2 leading-relaxed text-mystic-800 text-justify">{cleanText}</p>;
+                    return <p key={idx} className="mb-2 leading-relaxed text-mystic-800 text-justify text-sm sm:text-base">{formattedPara}</p>;
                 });
             };
 
             return (
                 <Card title="Kadim Yüz Okuyucu (Fizyonomi Simyası)" icon={<Icons.Eye />} isGemini={true} className="col-span-1 md:col-span-2 xl:col-span-3 mb-8 border-teal-400">
-                    <div className="flex flex-col lg:flex-row gap-8 items-start w-full">
-                        <div className="w-full lg:w-1/3 space-y-5">
-                            <p className="text-base text-mystic-800 font-serif leading-relaxed text-justify">
+                    <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 items-start w-full">
+                        <div className="w-full lg:w-1/3 space-y-4 sm:space-y-5">
+                            <p className="text-sm sm:text-base text-mystic-800 font-serif leading-relaxed text-justify">
                                 Gemini Vision (Görsel Zeka) entegrasyonu ile yüzünüzdeki çizgilerin, gözlerinizdeki ışığın ve mimiklerinizdeki auranın derin okumasını yapıyoruz. Net bir selfie yükleyin, kadim fizyonomi ilmi ile ruhunuzun gizli haritası ortaya çıksın.
                             </p>
                             
-                            <div className="file-upload-wrapper w-full h-40 border-2 border-dashed border-teal-400 rounded-3xl bg-teal-50 flex flex-col items-center justify-center text-teal-700 hover:bg-teal-100 transition-colors">
-                                <Icons.Camera className="w-10 h-10 mb-2 opacity-70" />
-                                <span className="font-medium">Fotoğraf Yükle</span>
+                            <div className="file-upload-wrapper w-full h-32 sm:h-40 border-2 border-dashed border-teal-400 rounded-3xl bg-teal-50 flex flex-col items-center justify-center text-teal-700 hover:bg-teal-100 transition-colors">
+                                <Icons.Camera className="w-8 h-8 sm:w-10 sm:h-10 mb-2 opacity-70" />
+                                <span className="font-medium text-sm sm:text-base">Fotoğraf Yükle</span>
                                 <span className="text-xs opacity-60 mt-1">Yüzünüzün net olduğu bir görsel</span>
                                 <input type="file" accept="image/*" onChange={handleImageChange} />
                             </div>
 
-                            <Button onClick={handleAnalysis} variant="gemini" className="w-full !py-4 !text-lg shadow-[0_0_20px_rgba(20,184,166,0.4)]" disabled={isLoading || !imagePreview}>
+                            <Button onClick={handleAnalysis} variant="gemini" className="w-full !py-3 sm:!py-4 text-base sm:text-lg shadow-[0_0_20px_rgba(20,184,166,0.4)]" disabled={isLoading || !imagePreview}>
                                 {isLoading ? 'Yüz Hatları Analiz Ediliyor...' : '✨ Yüzümdeki Nur\'u Oku'}
                             </Button>
                         </div>
                         
-                        <div className="w-full lg:w-2/3 flex flex-col gap-6">
+                        <div className="w-full lg:w-2/3 flex flex-col gap-4 sm:gap-6">
                             {imagePreview && (
-                                <div className="w-32 h-32 md:w-40 md:h-40 mx-auto lg:mx-0 rounded-full overflow-hidden border-4 border-teal-200 shadow-xl self-start flex-shrink-0">
+                                <div className="relative w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 mx-auto lg:mx-0 rounded-full overflow-hidden border-4 border-teal-200 shadow-xl self-start flex-shrink-0 group">
                                     <img src={imagePreview} alt="Yüklenen Görsel" className="w-full h-full object-cover" />
+                                    <button onClick={clearImage} className="absolute inset-0 bg-red-500/70 text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                                        <Icons.Trash className="w-6 h-6 sm:w-8 sm:h-8" />
+                                    </button>
                                 </div>
                             )}
 
                             {isLoading && (
-                                <div className="py-10 flex flex-col items-center justify-center w-full bg-white/50 rounded-3xl">
+                                <div className="py-6 sm:py-10 flex flex-col items-center justify-center w-full bg-white/50 rounded-3xl">
                                     <Icons.Loader />
-                                    <p className="mt-4 text-teal-700 font-medium animate-pulse">Kadim simyacı gözlerinizdeki sırrı çözüyor...</p>
+                                    <p className="mt-3 sm:mt-4 text-teal-700 font-medium animate-pulse text-sm sm:text-base">Kadim simyacı gözlerinizdeki sırrı çözüyor...</p>
                                 </div>
                             )}
 
                             {result && !isLoading && (
-                                <div className="p-6 bg-gradient-to-br from-teal-50/80 to-white/90 rounded-2xl border border-teal-300 shadow-lg relative animate-slide-up flex flex-col max-h-[500px]">
-                                    <div className="flex justify-between items-center mb-4 border-b border-mystic-200 pb-2">
-                                        <h5 className="font-serif text-xl text-mystic-900">Fizyonomi Analizi:</h5>
+                                <div className="result-container p-4 sm:p-6 bg-gradient-to-br from-teal-50/80 to-white/90 rounded-2xl border border-teal-300 shadow-lg relative animate-slide-up flex flex-col max-h-[400px] sm:max-h-[500px]">
+                                    <div className="flex flex-col sm:flex-row justify-between items-center mb-4 border-b border-mystic-200 pb-2 gap-3 sm:gap-0">
+                                        <h5 className="font-serif text-lg sm:text-xl text-mystic-900 font-bold">Fizyonomi Analizi:</h5>
                                         <button 
                                             onClick={handleTTS} 
                                             disabled={isAudioLoading}
-                                            className="flex items-center gap-2 px-4 py-2 rounded-full bg-mystic-800 text-white text-sm font-medium hover:bg-mystic-600 transition-colors shadow-md disabled:opacity-50"
+                                            className="flex items-center justify-center gap-2 px-3 sm:px-4 py-2 w-full sm:w-auto rounded-full bg-mystic-800 text-white text-xs sm:text-sm font-medium hover:bg-mystic-600 transition-colors shadow-md disabled:opacity-50 print-hide"
                                         >
-                                            {isAudioLoading ? <Icons.Loader className="w-4 h-4" /> : <Icons.Play />}
+                                            {isAudioLoading ? <Icons.Loader className="w-3 h-3 sm:w-4 sm:h-4" /> : <Icons.Play />}
                                             🎧 Fısıltıyı Dinle
                                         </button>
                                     </div>
 
                                     {audioUrl && (
-                                        <div className="mb-4 p-3 bg-white/60 rounded-xl border border-mystic-200 animate-fade-in">
-                                            <p className="text-xs text-mystic-600 font-medium mb-2 uppercase tracking-widest text-center">Ruhsal Yüz Okuması Yayınlanıyor</p>
-                                            <audio controls src={audioUrl} className="w-full h-10" autoPlay />
+                                        <div className="mb-4 p-2 sm:p-3 bg-white/60 rounded-xl border border-mystic-200 animate-fade-in print-hide">
+                                            <p className="text-[10px] sm:text-xs text-mystic-600 font-medium mb-2 uppercase tracking-widest text-center">Ruhsal Yüz Okuması Yayınlanıyor</p>
+                                            <audio controls src={audioUrl} className="w-full h-8 sm:h-10" autoPlay />
                                         </div>
                                     )}
 
-                                    <div className="prose-custom text-sm md:text-base overflow-y-auto pr-2">
+                                    <div className="prose-custom overflow-y-auto pr-2">
                                         {renderResultContent(result)}
                                     </div>
+                                    <SharePanel text={result} title="Fizyonomi Analizi" />
                                 </div>
                             )}
                         </div>
@@ -908,7 +987,6 @@
             const [result, setResult] = useState('');
             const [isLoading, setIsLoading] = useState(false);
             
-            // TTS States
             const [audioUrl, setAudioUrl] = useState(null);
             const [isAudioLoading, setIsAudioLoading] = useState(false);
 
@@ -921,7 +999,7 @@
 
                 setIsLoading(true);
                 setResult('');
-                setAudioUrl(null); // Reset audio
+                setAudioUrl(null); 
 
                 try {
                     const prompt = promptTemplate.replace('{{INPUT}}', input);
@@ -947,7 +1025,6 @@
                 if (!result || !apiKey) return;
                 setIsAudioLoading(true);
                 try {
-                    // Temiz metin çıkarma
                     const cleanText = result.replace(/✨/g, '').replace(/\*/g, '');
                     const textToSpeak = "Gizemli, bilge ve çok şefkatli bir ses tonuyla oku: " + cleanText.substring(0, 1000); 
 
@@ -956,9 +1033,7 @@
                         generationConfig: {
                             responseModalities: ["AUDIO"],
                             speechConfig: {
-                                voiceConfig: {
-                                    prebuiltVoiceConfig: { voiceName: "Aoede" } // Aoede çok mistik bir tondur
-                                }
+                                voiceConfig: { prebuiltVoiceConfig: { voiceName: "Aoede" } } 
                             }
                         },
                         model: "gemini-2.5-flash-preview-tts"
@@ -977,10 +1052,9 @@
                     if(!inlineData) throw new Error("Ses verisi alınamadı.");
 
                     const base64Audio = inlineData.data;
-                    const mimeType = inlineData.mimeType || "audio/L16; rate=24000";
                     let rate = 24000;
-                    if(mimeType.includes('rate=')) {
-                        rate = parseInt(mimeType.split('rate=')[1]);
+                    if(inlineData.mimeType && inlineData.mimeType.includes('rate=')) {
+                        rate = parseInt(inlineData.mimeType.split('rate=')[1]);
                     }
 
                     const blob = createWavBlob(base64Audio, rate);
@@ -993,71 +1067,86 @@
                 }
             };
 
-            // Custom Result Formatting based on Render Style
+            const clearInput = () => {
+                setInput('');
+                setResult('');
+                setAudioUrl(null);
+            };
+
             const renderResultContent = (text) => {
                 return text.split('\n').filter(p => p.trim() !== '').map((para, idx) => {
-                    const cleanText = para.replace(/\*\*/g, '').replace(/\*/g, '');
-                    
-                    // Header-like elements with emojis
-                    if (cleanText.includes("✨") || cleanText.match(/^[A-ZĞÜŞİÖÇ][a-zğüşiöç\s]+:/)) {
-                        return <p key={idx} className={`font-semibold text-mystic-900 mt-4 mb-2 p-3 rounded-lg border ${renderStyle.headerBg} ${renderStyle.borderColor}`}>{cleanText}</p>;
-                    }
-                    
-                    // Quoted/Mantra like elements
-                    if (cleanText.startsWith('"') || cleanText.includes("Mantra:") || cleanText.includes("Tarifi:")) {
-                        return <div key={idx} className={`p-4 rounded-xl italic font-serif my-4 border ${renderStyle.mantraBg} ${renderStyle.borderColor}`}>{cleanText}</div>;
-                    }
+                    const parts = para.split(/(\*\*.*?\*\*)/g);
+                    const formattedPara = parts.map((part, i) => {
+                        if (part.startsWith('**') && part.endsWith('**')) {
+                            return <strong key={i} className="text-gold-700 font-bold tracking-wide">{part.slice(2, -2)}</strong>;
+                        }
+                        return part.replace(/\*/g, '');
+                    });
 
-                    // Regular paragraphs
-                    return <p key={idx} className="mb-2 leading-relaxed text-mystic-800 text-justify">{cleanText}</p>;
+                    if (para.includes("✨") || para.match(/^[A-ZĞÜŞİÖÇ][a-zğüşiöç\s]+:/)) {
+                        return <p key={idx} className={`font-semibold text-mystic-900 mt-4 mb-2 p-3 rounded-lg border ${renderStyle.headerBg} ${renderStyle.borderColor} text-sm sm:text-base shadow-sm`}>{formattedPara}</p>;
+                    }
+                    if (para.startsWith('"') || para.includes("Mantra:") || para.includes("Ritüeli:") || para.includes("Pratiği:")) {
+                        return <div key={idx} className={`p-4 rounded-xl italic font-serif my-4 border ${renderStyle.mantraBg} ${renderStyle.borderColor} text-sm sm:text-base text-gold-900 shadow-inner`}>{formattedPara}</div>;
+                    }
+                    return <p key={idx} className="mb-3 leading-relaxed text-mystic-800 text-justify text-sm sm:text-base">{formattedPara}</p>;
                 });
             };
 
             return (
-                <Card title={title} icon={icon} isGemini={true}>
-                    <div className="space-y-5 flex flex-col h-full">
-                        <p className="text-base text-mystic-800 font-serif leading-relaxed text-justify">
+                <Card title={title} icon={icon} isGemini={true} className={renderStyle.borderColor || ''}>
+                    <div className="space-y-4 sm:space-y-5 flex flex-col h-full relative group">
+                        <p className="text-sm sm:text-base text-mystic-800 font-serif leading-relaxed text-justify print-hide">
                             {description}
                         </p>
-                        <textarea 
-                            value={input}
-                            onChange={(e) => setInput(e.target.value)}
-                            placeholder={placeholder}
-                            className="w-full h-32 p-5 rounded-2xl border border-mystic-300 bg-white/80 focus:bg-white focus:border-mystic-500 focus:ring-4 focus:ring-mystic-500/30 transition-all resize-none text-mystic-900 placeholder-mystic-400 shadow-inner outline-none text-lg flex-grow"
-                        ></textarea>
+                        <div className="relative w-full print-hide">
+                            <textarea 
+                                value={input}
+                                onChange={(e) => setInput(e.target.value)}
+                                placeholder={placeholder}
+                                className="w-full h-24 sm:h-32 p-4 sm:p-5 rounded-2xl border border-mystic-300 bg-white/80 focus:bg-white focus:border-mystic-500 focus:ring-4 focus:ring-mystic-500/30 transition-all resize-none text-mystic-900 placeholder-mystic-400 shadow-inner outline-none text-base sm:text-lg flex-grow pr-12"
+                            ></textarea>
+                            {input && (
+                                <button onClick={clearInput} className="absolute top-3 right-3 text-red-400 hover:text-red-600 transition-colors p-1 bg-white/50 rounded-full backdrop-blur-sm shadow-sm">
+                                    <Icons.XMark />
+                                </button>
+                            )}
+                        </div>
                         
-                        <Button onClick={handleAnalysis} variant="gemini" className="w-full !py-4 !text-lg" disabled={isLoading}>
+                        <Button onClick={handleAnalysis} variant="gemini" className="w-full !py-3 sm:!py-4 text-base sm:text-lg print-hide" disabled={isLoading}>
                             {isLoading ? 'Kozmik Veri İşleniyor...' : buttonText}
                         </Button>
 
-                        {isLoading && <div className="py-6 flex justify-center"><Icons.Loader /></div>}
+                        {isLoading && <div className="py-4 sm:py-6 flex justify-center print-hide"><Icons.Loader /></div>}
 
                         {result && !isLoading && (
-                            <div className={`mt-4 p-6 bg-gradient-to-br ${renderStyle.resultBg} rounded-2xl border ${renderStyle.borderColor} shadow-lg relative animate-slide-up flex flex-col max-h-[600px]`}>
-                                <div className="flex justify-between items-center mb-4 border-b border-mystic-200 pb-2">
-                                    <h5 className="font-serif text-xl text-mystic-900">Kozmik Analiz:</h5>
+                            <div className={`result-container mt-4 p-4 sm:p-6 bg-gradient-to-br ${renderStyle.resultBg} rounded-2xl border ${renderStyle.borderColor} shadow-lg relative animate-slide-up flex flex-col max-h-[400px] sm:max-h-[600px] overflow-y-auto`}>
+                                <div className="flex flex-col sm:flex-row justify-between items-center mb-4 border-b border-mystic-200 pb-4 gap-3 sm:gap-0">
+                                    <h5 className="font-serif text-lg sm:text-xl text-mystic-900 font-bold">{title} Analizi:</h5>
                                     
-                                    {/* SESLİ DİNLE BUTONU (TTS) */}
                                     <button 
                                         onClick={handleTTS} 
                                         disabled={isAudioLoading}
-                                        className="flex items-center gap-2 px-4 py-2 rounded-full bg-mystic-800 text-white text-sm font-medium hover:bg-mystic-600 transition-colors shadow-md disabled:opacity-50"
+                                        className="flex items-center justify-center gap-2 px-3 sm:px-4 py-2 w-full sm:w-auto rounded-full bg-mystic-800 text-white text-xs sm:text-sm font-medium hover:bg-mystic-600 transition-colors shadow-md disabled:opacity-50 print-hide"
                                     >
-                                        {isAudioLoading ? <Icons.Loader className="w-4 h-4" /> : <Icons.Play />}
+                                        {isAudioLoading ? <Icons.Loader className="w-3 h-3 sm:w-4 sm:h-4" /> : <Icons.Play />}
                                         🎧 Fısıltıyı Dinle
                                     </button>
                                 </div>
 
                                 {audioUrl && (
-                                    <div className="mb-4 p-3 bg-white/60 rounded-xl border border-mystic-200 animate-fade-in">
-                                        <p className="text-xs text-mystic-600 font-medium mb-2 uppercase tracking-widest text-center">Ruhsal Frekans Yayınlanıyor</p>
-                                        <audio controls src={audioUrl} className="w-full h-10" autoPlay />
+                                    <div className="mb-4 p-2 sm:p-3 bg-white/60 rounded-xl border border-mystic-200 animate-fade-in print-hide">
+                                        <p className="text-[10px] sm:text-xs text-mystic-600 font-medium mb-2 uppercase tracking-widest text-center">Ruhsal Frekans Yayınlanıyor</p>
+                                        <audio controls src={audioUrl} className="w-full h-8 sm:h-10" autoPlay />
                                     </div>
                                 )}
 
-                                <div className="prose-custom text-sm md:text-base overflow-y-auto pr-2">
+                                <div className="prose-custom pr-2">
                                     {renderResultContent(result)}
                                 </div>
+                                
+                                {/* PAYLAŞIM VE İNDİRME PANELİ EKLENDİ */}
+                                <SharePanel text={result} title={title} />
                             </div>
                         )}
                     </div>
@@ -1088,7 +1177,6 @@
                 setIsSettingsOpen(false);
             };
 
-            // AI MODULES CONFIGURATION (THE MASSIVE 20 MODULES UPDATE!)
             const aiModulesConfig = [
                 {
                     id: 'ayurvedaPro',
@@ -1412,28 +1500,30 @@
                     )}
 
                     {/* Hero Section */}
-                    <header className="pt-28 pb-20 px-4 text-center animate-slide-up relative z-10">
-                        <div className="relative w-40 h-40 md:w-48 md:h-48 mx-auto mb-10">
-                            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-gold-500 via-mystic-500 to-green-500 animate-spin-slow opacity-80 blur-md"></div>
-                            <div className="absolute inset-1 rounded-full bg-cream-100 flex items-center justify-center border-4 border-white shadow-xl overflow-hidden z-10">
-                                <svg className="w-24 h-24 text-mystic-300 mt-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                    <header className="pt-24 sm:pt-32 pb-16 sm:pb-24 px-4 text-center animate-slide-up relative z-10">
+                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] sm:w-[800px] h-[400px] sm:h-[800px] bg-gradient-to-r from-gold-500/20 via-mystic-500/20 to-gold-500/20 rounded-full blur-[80px] sm:blur-[120px] -z-10 pointer-events-none animate-pulse-slow"></div>
+                        
+                        <div className="relative w-32 h-32 sm:w-48 sm:h-48 mx-auto mb-8 sm:mb-12">
+                            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-gold-400 via-mystic-500 to-green-500 animate-spin-slow opacity-100 blur-lg shadow-[0_0_50px_rgba(212,175,55,0.6)]"></div>
+                            <div className="absolute inset-1 rounded-full bg-cream-100 flex items-center justify-center border-[3px] sm:border-4 border-white shadow-2xl overflow-hidden z-10">
+                                <svg className="w-16 h-16 sm:w-24 sm:h-24 text-mystic-300 mt-4 sm:mt-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
                             </div>
-                            <div className="absolute -bottom-2 -right-2 bg-white rounded-full p-3 shadow-[0_0_20px_rgba(212,175,55,0.7)] z-20 border border-gold-200 text-gold-500 animate-pulse-slow">
+                            <div className="absolute -bottom-2 -right-2 bg-white rounded-full p-2 sm:p-3 shadow-[0_0_30px_rgba(212,175,55,0.9)] z-20 border border-gold-200 text-gold-500 animate-pulse-slow">
                                 <Icons.Star />
                             </div>
                         </div>
                         
-                        <h1 className="text-5xl md:text-8xl font-serif mb-6 tracking-tight drop-shadow-[0_0_20px_rgba(212,175,55,0.8)] text-transparent bg-clip-text bg-gradient-to-r from-gold-700 via-gold-400 to-gold-700 animate-text-shimmer py-2 leading-tight">
+                        <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-serif mb-4 sm:mb-8 tracking-tight text-mystic-900 py-2 leading-tight px-2" style={{ textShadow: '0 4px 20px rgba(212,175,55,0.5)' }}>
                             Nurun Ala Nur
                         </h1>
                         
-                        <div className="flex items-center justify-center gap-4 mb-8">
-                            <div className="sacred-line w-16 md:w-32"></div>
-                            <h2 className="text-xl md:text-2xl font-medium text-mystic-700 tracking-widest uppercase text-center">Multi-Modal Ruhsal Simya</h2>
-                            <div className="sacred-line w-16 md:w-32"></div>
+                        <div className="flex items-center justify-center gap-2 sm:gap-6 mb-6 sm:mb-10 px-2">
+                            <div className="sacred-line w-12 sm:w-40"></div>
+                            <h2 className="text-lg sm:text-2xl md:text-3xl font-medium text-gold-700 tracking-widest uppercase text-center drop-shadow-md">Multi-Modal Ruhsal Simya</h2>
+                            <div className="sacred-line w-12 sm:w-40"></div>
                         </div>
-                        <p className="max-w-4xl mx-auto text-mystic-800 text-lg md:text-xl font-light leading-relaxed mb-12 drop-shadow-sm">
-                            Işığın ışıkla buluştuğu merkeze hoş geldiniz. Yepyeni <strong>Imagen-4 Görsel Zekası</strong> ile ruhunuzun fotoğrafını çekin, <strong>Gemini Vision</strong> ile yüzünüzün aurasını okutun ve <strong>Gemini Ses Motoru (TTS)</strong> ile tüm şifa reçetelerinizi kozmik rehberinizden dinleyin...
+                        <p className="max-w-4xl mx-auto text-mystic-800 text-base sm:text-xl md:text-2xl font-light leading-relaxed mb-12 drop-shadow-sm px-4 sm:px-0">
+                            Işığın ışıkla buluştuğu merkeze hoş geldiniz. Yepyeni <strong style={{ color: '#d4af37' }}>Imagen-4 Görsel Zekası</strong> ile ruhunuzun fotoğrafını çekin, <strong style={{ color: '#d4af37' }}>Gemini Vision</strong> ile yüzünüzün aurasını okutun ve <strong style={{ color: '#d4af37' }}>Gemini Ses Motoru (TTS)</strong> ile tüm şifa reçetelerinizi kozmik rehberinizden dinleyin...
                         </p>
                     </header>
 
@@ -1660,12 +1750,12 @@
                             </div>
                         </Card>
                         
-                    </main>
+                   </main>
 
-                    <footer className="mt-32 text-center pb-12 opacity-80 relative z-10">
-                        <div className="sacred-line w-64 mx-auto mb-8"></div>
-                        <p className="text-2xl font-serif text-mystic-900 italic mb-4 drop-shadow-sm">"Şifa, dışarıdan alınan bir ilaç değil, içeriden hatırlanan ilksel bir nurdur."</p>
-                        <p className="text-sm text-mystic-700 tracking-widest uppercase font-medium">
+                    <footer className="mt-32 text-center pb-12 opacity-80 relative z-10 px-4">
+                        <div className="sacred-line w-48 sm:w-64 mx-auto mb-8"></div>
+                        <p className="text-xl sm:text-2xl font-serif text-mystic-900 italic mb-4 drop-shadow-sm">"Şifa, dışarıdan alınan bir ilaç değil, içeriden hatırlanan ilksel bir nurdur."</p>
+                        <p className="text-xs sm:text-sm text-mystic-700 tracking-widest uppercase font-medium">
                             &copy; {new Date().getFullYear()} Nurun Ala Nur | Ruhsal Simya Merkezi
                         </p>
                     </footer>
@@ -1673,8 +1763,44 @@
             );
         };
 
+        // --- HATA YAKALAYICI (BEYAZ EKRAN ÇÖZÜCÜ) ---
+        class ErrorBoundary extends React.Component {
+            constructor(props) {
+                super(props);
+                this.state = { hasError: false, error: null, errorInfo: null };
+            }
+            static getDerivedStateFromError(error) {
+                return { hasError: true };
+            }
+            componentDidCatch(error, errorInfo) {
+                this.setState({ error: error, errorInfo: errorInfo });
+            }
+            render() {
+                if (this.state.hasError) {
+                    return (
+                        <div style={{ padding: '40px', backgroundColor: '#fdf8e8', border: '2px solid #d4af37', color: '#2d1445', margin: '40px auto', borderRadius: '20px', fontFamily: 'sans-serif', maxWidth: '800px', boxShadow: '0 10px 30px rgba(0,0,0,0.1)' }}>
+                            <h2 style={{ color: '#d9534f', fontSize: '28px', marginBottom: '15px' }}>🚨 Kozmik Dalgalanma (Kod Hatası) Tespit Edildi! 🚨</h2>
+                            <p style={{ fontSize: '16px', marginBottom: '20px', lineHeight: '1.6' }}>Barış Hocam, kodun içinde ufak bir parantez veya virgül hatası var. Sitenin çökmesini engelledim. Lütfen aşağıdaki hatayı bana gönder, hemen noktasını söyleyeyim:</p>
+                            <details open style={{ whiteSpace: 'pre-wrap', backgroundColor: '#fff', padding: '20px', border: '1px solid #e4ebe5', borderRadius: '15px' }}>
+                                <summary style={{ fontWeight: 'bold', cursor: 'pointer', marginBottom: '15px', color: '#648268' }}>Hata Detayları (Bana Burayı Kopyala):</summary>
+                                <strong style={{color: '#d9534f'}}>{this.state.error && this.state.error.toString()}</strong>
+                                <br /><br />
+                                <span style={{fontSize: '12px', color: '#777'}}>{this.state.errorInfo && this.state.errorInfo.componentStack}</span>
+                            </details>
+                        </div>
+                    );
+                }
+                return this.props.children;
+            }
+        }
+
         const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
+        root.render(
+            <ErrorBoundary>
+                <App />
+            </ErrorBoundary>
+        );
     </script>
 </body>
 </html>
+      
