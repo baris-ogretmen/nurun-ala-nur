@@ -1576,30 +1576,29 @@ const tracks = [
                     <div className="orb bg-gold-300/30 w-96 h-96 top-1/3 left-1/3 animate-float-orb" style={{ animationDelay: '4s' }}></div>
                     <div className="orb bg-earth-500/15 w-80 h-80 top-2/3 left-20 animate-float-orb" style={{ animationDelay: '6s', animationDirection: 'reverse' }}></div>
 
-{/* Navbar & Admin Badge */}
-                    <div className="absolute top-0 left-0 p-4 z-50 hidden sm:block" id="masterBadge" onClick={(e) => e.currentTarget.style.display='none'}>
-                        <div className="bg-mystic-900/90 backdrop-blur-md text-gold-300 px-5 py-2.5 rounded-full border border-gold-500/50 shadow-[0_0_20px_rgba(212,175,55,0.4)] text-xs md:text-sm font-bold tracking-widest flex items-center gap-3 animate-pulse-slow cursor-pointer hover:scale-105 hover:bg-mystic-800 transition-all group" title="Gizlemek için tıkla">
-                            <Icons.Star className="group-hover:rotate-180 transition-transform duration-500" /> MASTER YÖNETİCİ PANELİ <Icons.Star className="group-hover:rotate-180 transition-transform duration-500" />
-                        </div>
-                    </div>
-                    <nav className="absolute top-0 right-0 p-4 sm:p-6 z-50 flex items-center gap-2 sm:gap-3 w-full sm:w-auto justify-end pointer-events-none">
-                        <div className="pointer-events-auto flex items-center gap-2 sm:gap-3">
-                            {/* Sosyal Medya Linkleri */}
-                            <a href="https://instagram.com" target="_blank" rel="noreferrer" title="Instagram" className="p-2 sm:p-3 rounded-full bg-white/70 backdrop-blur-md border border-mystic-200 text-mystic-700 hover:bg-pink-50 hover:text-pink-600 transition-all shadow-lg btn-glow"><Icons.Instagram /></a>
-                            <a href="https://whatsapp.com" target="_blank" rel="noreferrer" title="WhatsApp" className="p-2 sm:p-3 rounded-full bg-white/70 backdrop-blur-md border border-mystic-200 text-mystic-700 hover:bg-green-50 hover:text-green-500 transition-all shadow-lg btn-glow"><Icons.WhatsApp /></a>
-                            <a href="https://www.youtube.com/results?search_query=yüz+yogası+masaj+doğal+kürler" target="_blank" rel="noreferrer" title="YouTube Eğitimleri" className="p-2 sm:p-3 rounded-full bg-white/70 backdrop-blur-md border border-mystic-200 text-mystic-700 hover:bg-red-50 hover:text-red-600 transition-all shadow-lg btn-glow"><Icons.YouTube /></a>
-                            
-                            <div className="h-6 sm:h-8 w-px bg-mystic-300 mx-1"></div>
+{/* Navbar & Admin Badge - YENİLENMİŞ MOBİL UYUM */}
+                    <div className="absolute top-0 left-0 w-full p-4 sm:p-6 z-50 flex justify-between items-start pointer-events-none">
+                        
+                        {/* Master Rozeti - Sola Sabit */}
+                        <div className="pointer-events-auto hidden sm:flex bg-mystic-900/90 backdrop-blur-md text-gold-300 px-5 py-2.5 rounded-full border border-gold-500/50 shadow-[0_0_20px_rgba(212,175,55,0.4)] text-xs md:text-sm font-bold tracking-widest items-center gap-3 animate-pulse-slow cursor-pointer hover:scale-105 hover:bg-mystic-800 transition-all group" id="masterBadge" onClick={(e) => e.currentTarget.style.display='none'} title="Gizlemek için tıkla">
+                            <Icons.Star className="group-hover:rotate-180 transition-transform duration-500" /> MASTER YÖNETİCİ PANELİ <Icons.Star className="group-hover:rotate-180 transition-transform duration-500" />
+                        </div>
 
-                            <button onClick={() => setIsSettingsOpen(true)} title="Sistem Ayarları" className="p-2 sm:p-3 rounded-full bg-mystic-900/90 backdrop-blur-md border border-gold-500/50 text-gold-400 hover:bg-mystic-800 hover:rotate-90 transition-all duration-500 shadow-lg btn-glow">
-                                <Icons.Settings />
-                            </button>
-                        </div>
-                    </nav>
+                        {/* Sosyal Medya ve Ayarlar - Sağa Sabit ve Kapsüllü */}
+                        <div className="pointer-events-auto ml-auto flex items-center gap-2 bg-white/60 p-2 sm:p-2.5 rounded-full backdrop-blur-md border border-white/50 shadow-lg">
+                            <a href="https://instagram.com" target="_blank" rel="noreferrer" title="Instagram" className="p-2 sm:p-2.5 rounded-full bg-white/90 text-mystic-700 hover:bg-pink-50 hover:text-pink-600 transition-all shadow-sm btn-glow"><Icons.Instagram /></a>
+                            <a href="https://whatsapp.com" target="_blank" rel="noreferrer" title="WhatsApp" className="p-2 sm:p-2.5 rounded-full bg-white/90 text-mystic-700 hover:bg-green-50 hover:text-green-500 transition-all shadow-sm btn-glow"><Icons.WhatsApp /></a>
+                            <a href="https://www.youtube.com/results?search_query=yüz+yogası+masaj+doğal+kürler" target="_blank" rel="noreferrer" title="YouTube Eğitimleri" className="p-2 sm:p-2.5 rounded-full bg-white/90 text-mystic-700 hover:bg-red-50 hover:text-red-600 transition-all shadow-sm btn-glow"><Icons.YouTube /></a>
+                            <div className="h-6 w-px bg-mystic-300/50 mx-1"></div>
+                            <button onClick={() => setIsSettingsOpen(true)} title="Sistem Ayarları" className="p-2 sm:p-2.5 rounded-full bg-mystic-900 text-gold-400 hover:bg-mystic-800 hover:rotate-90 transition-all duration-500 shadow-sm btn-glow">
+                                <Icons.Settings />
+                            </button>
+                        </div>
+                    </div>
 
                     {/* Settings Modal */}
                     {isSettingsOpen && (
-                        <div className="fixed inset-0 bg-mystic-900/60 backdrop-blur-md z-50 flex items-center justify-center p-4 animate-fade-in">
+                        <div className="fixed inset-0 bg-mystic-900/60 backdrop-blur-md z-[60] flex items-center justify-center p-4 animate-fade-in">
                             <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-[0_0_60px_rgba(212,175,55,0.4)] border border-gold-300 relative overflow-hidden">
                                 <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-gold-300 via-gold-500 to-gold-300"></div>
                                 <h2 className="text-2xl font-serif text-mystic-900 mb-2">Gizli Işık Kapısı</h2>
@@ -1621,30 +1620,37 @@ const tracks = [
                     )}
 
                     {/* Hero Section */}
-                    <header className="pt-24 sm:pt-32 pb-16 sm:pb-24 px-4 text-center animate-slide-up relative z-10">
+                    <header className="pt-32 sm:pt-40 pb-16 sm:pb-24 px-4 text-center animate-slide-up relative z-10 flex flex-col items-center">
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] sm:w-[800px] h-[400px] sm:h-[800px] bg-gradient-to-r from-gold-500/20 via-mystic-500/20 to-gold-500/20 rounded-full blur-[80px] sm:blur-[120px] -z-10 pointer-events-none animate-pulse-slow"></div>
                         
-                        <div className="relative w-32 h-32 sm:w-48 sm:h-48 mx-auto mb-8 sm:mb-12">
+                       {/* Profil Sembolü (Aşağıya İtildi, Linklerle Çakışmaz) */}
+                        <div className="relative w-32 h-32 sm:w-48 sm:h-48 mx-auto mb-10 sm:mb-12 animate-float-orb" style={{animationDuration: '6s'}}>
                             <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-gold-400 via-mystic-500 to-green-500 animate-spin-slow opacity-100 blur-lg shadow-[0_0_50px_rgba(212,175,55,0.6)]"></div>
-                            <div className="absolute inset-1 rounded-full bg-cream-100 flex items-center justify-center border-[3px] sm:border-4 border-white shadow-2xl overflow-hidden z-10">
-                                <svg className="w-16 h-16 sm:w-24 sm:h-24 text-mystic-300 mt-4 sm:mt-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                            <div className="absolute inset-1 rounded-full bg-cream-100 flex items-center justify-center border-[3px] sm:border-4 border-white shadow-2xl overflow-hidden z-10 bg-white">
+                                <img 
+                                    src="nurun ala nur.jpg" 
+                                    alt="Nurun Ala Nur Profil" 
+                                    className="w-full h-full object-cover object-top scale-110" 
+                                    onError={(e) => { e.target.src = "https://ui-avatars.com/api/?name=N+A+N&background=2d1445&color=d4af37&size=256"; }}
+                                />
                             </div>
                             <div className="absolute -bottom-2 -right-2 bg-white rounded-full p-2 sm:p-3 shadow-[0_0_30px_rgba(212,175,55,0.9)] z-20 border border-gold-200 text-gold-500 animate-pulse-slow">
                                 <Icons.Star />
                             </div>
                         </div>
                         
-                        <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-serif mb-4 sm:mb-8 tracking-tight py-2 leading-tight px-2 text-transparent bg-clip-text bg-gradient-to-r from-gold-300 via-mystic-600 to-gold-500 animate-text-shimmer drop-shadow-2xl hover:scale-105 transition-transform duration-700 cursor-default">
-                            Nurun Ala Nur
-                        </h1>
+                        {/* Havalı Cix Mobil Başlık */}
+                        <h1 className="text-[3.5rem] leading-[1.1] sm:text-7xl md:text-8xl lg:text-9xl font-serif font-black mb-6 sm:mb-8 tracking-tighter py-2 px-2 text-transparent bg-clip-text bg-gradient-to-br from-gold-300 via-mystic-700 to-gold-600 animate-text-shimmer drop-shadow-2xl hover:scale-105 transition-transform duration-700 cursor-default" style={{WebkitTextStroke: '1px rgba(212, 175, 55, 0.2)'}}>
+                            Nurun Ala Nur
+                        </h1>
                         
-                        <div className="flex items-center justify-center gap-2 sm:gap-6 mb-6 sm:mb-10 px-2">
-                            <div className="sacred-line w-12 sm:w-40"></div>
-                            <h2 className="text-lg sm:text-2xl md:text-3xl font-medium text-gold-700 tracking-widest uppercase text-center drop-shadow-md">Multi-Modal Ruhsal Simya</h2>
-                            <div className="sacred-line w-12 sm:w-40"></div>
+                        <div className="flex items-center justify-center gap-3 sm:gap-6 mb-8 sm:mb-10 px-2 w-full max-w-2xl mx-auto">
+                            <div className="sacred-line flex-1 h-[2px]"></div>
+                            <h2 className="text-sm sm:text-2xl md:text-3xl font-bold text-gold-700 tracking-widest uppercase text-center drop-shadow-md whitespace-nowrap">Ruhsal Simya</h2>
+                            <div className="sacred-line flex-1 h-[2px]"></div>
                         </div>
-                        <p className="max-w-4xl mx-auto text-mystic-800 text-base sm:text-xl md:text-2xl font-light leading-relaxed mb-12 drop-shadow-sm px-4 sm:px-0">
-                            Işığın ışıkla buluştuğu merkeze hoş geldiniz. Yepyeni <strong style={{ color: '#d4af37' }}>Imagen-4 Görsel Zekası</strong> ile ruhunuzun fotoğrafını çekin, <strong style={{ color: '#d4af37' }}>Gemini Vision</strong> ile yüzünüzün aurasını okutun ve <strong style={{ color: '#d4af37' }}>Gemini Ses Motoru (TTS)</strong> ile tüm şifa reçetelerinizi kozmik rehberinizden dinleyin...
+                        <p className="max-w-4xl mx-auto text-mystic-800 text-base sm:text-xl md:text-2xl font-medium leading-relaxed mb-12 drop-shadow-sm px-6 sm:px-0">
+                            Işığın ışıkla buluştuğu merkeze hoş geldiniz. Yepyeni <strong style={{ color: '#d4af37' }}>Imagen Görsel Zekası</strong> ile ruhunuzun fotoğrafını çekin, <strong style={{ color: '#d4af37' }}>Gemini Vision</strong> ile yüzünüzün aurasını okutun ve <strong style={{ color: '#d4af37' }}>Ses Motoru (TTS)</strong> ile tüm şifa reçetelerinizi kozmik rehberinizden dinleyin...
                         </p>
                     </header>
 
